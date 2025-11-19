@@ -2,355 +2,441 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tao Qin - PhD Student in Mathematics, University of Sydney">
-    <title>Tao Qin | University of Sydney</title>
+    <title>Tao Qin - Mathematics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal homepage of Tao Qin, PhD candidate in pure mathematics at the University of Sydney.">
     <style>
-        /* --- 全局样式 (Academic Minimalist CSS) --- */
         :root {
-            --primary-color: #0056b3; /* 链接颜色 */
-            --text-color: #333;
-            --bg-color: #f9f9f9;
-            --container-bg: #ffffff;
-            --font-main: "Georgia", "Times New Roman", serif; /* 标题用衬线体，模仿LaTeX */
-            --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* 正文用无衬线体，易读 */
+            color-scheme: light dark;
         }
-
         body {
-            font-family: var(--font-body);
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 3rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
         }
-
-        /* --- 布局容器 --- */
-        .container {
-            max-width: 860px;
-            margin: 40px auto;
-            background: var(--container-bg);
-            padding: 50px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-radius: 8px;
-        }
-
-        /* --- 头部区域 --- */
         header {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
         }
-
         h1 {
-            font-family: var(--font-main);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #111;
+            font-size: 2.2rem;
+            margin: 0;
         }
-
-        .contact-info {
-            font-size: 0.95rem;
+        .tagline {
+            margin-top: 0.25rem;
             color: #555;
+            font-size: 0.98rem;
         }
-
-        .contact-info span {
-            margin-right: 20px;
-            display: inline-block;
-        }
-
-        .contact-info a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* --- 章节样式 --- */
-        section {
-            margin-bottom: 40px;
-        }
-
-        h2 {
-            font-family: var(--font-body);
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #0077cc; /* 对应你CV中的 cyan，但稍微深一点以利于阅读 */
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-            margin-top: 30px;
-            margin-bottom: 20px;
-        }
-
-        /* --- 列表与条目 --- */
-        .item {
-            margin-bottom: 15px;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            font-family: var(--font-main);
-            font-size: 1.05rem;
-        }
-
-        .item-sub {
-            font-style: italic;
-            color: #666;
-        }
-
-        .item-desc {
-            margin-top: 5px;
+        .contact {
+            margin-top: 0.5rem;
             font-size: 0.95rem;
         }
-
-        /* --- 列表样式 --- */
-        ul {
-            padding-left: 20px;
-            margin-top: 5px;
+        .contact span {
+            display: inline-block;
+            margin-right: 1.2rem;
         }
-        
-        li {
-            margin-bottom: 5px;
-        }
-
-        /* --- 链接 --- */
-        a {
-            color: var(--primary-color);
+        .contact a {
             text-decoration: none;
         }
-
-        a:hover {
+        .contact a:hover {
             text-decoration: underline;
         }
-
-        /* --- 移动端适配 --- */
-        @media (max-width: 600px) {
-            .container {
-                margin: 0;
-                padding: 20px;
-                box-shadow: none;
+        .updated {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 0.2rem;
+        }
+        nav {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        nav a {
+            margin-right: 1rem;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main section {
+            margin-top: 2rem;
+        }
+        main h2 {
+            font-size: 1.3rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.2rem;
+            margin-bottom: 0.6rem;
+        }
+        ul {
+            padding-left: 1.2rem;
+        }
+        li {
+            margin-bottom: 0.3rem;
+        }
+        .subtle {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .two-column-list {
+            columns: 1;
+        }
+        @media (min-width: 780px) {
+            .two-column-list {
+                columns: 2;
             }
-            .item-header {
-                flex-direction: column;
-            }
-            .contact-info span {
-                display: block;
-                margin-bottom: 5px;
-            }
+        }
+        .section-note {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 0.3rem;
+        }
+        .lang-note {
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+        a {
+            color: inherit;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<header>
+    <h1>Tao Qin</h1>
+    <div class="tagline">
+        PhD Candidate in Pure Mathematics, University of Sydney
+    </div>
+    <div class="contact">
+        <span>Email: tao.qin97 [at] gmail [dot] com</span>
+        <span>Address: Carslaw Building F07, University of Sydney</span>
+        <span>GitHub: <a href="https://github.com/taoqin-math">taoqin-math</a></span>
+    </div>
+    <div class="updated">
+        Last updated: November 2025
+        <!-- update this line manually when you modify the page -->
+    </div>
+</header>
 
-    <header>
-        <h1>Tao Qin</h1>
-        <div class="contact-info">
-            <span>Email: <a href="mailto:tao.qin97@gmail.com">tao.qin97@gmail.com</a></span>
-            <span>Address: Carslaw Building F07, USyd</span>
-            </div>
-        <div style="margin-top: 10px;">
-            </div>
-    </header>
+<nav>
+    <a href="#about">About</a>
+    <a href="#research-interests">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#talks">Talks</a>
+    <a href="#visits">Visits</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#funding">Funding</a>
+    <a href="#skills">Skills</a>
+    <a href="#chinese">中文简介</a>
+</nav>
 
-    <section>
-        <h2>Research Interests</h2>
-        <p>Representation Theory, Algebraic Combinatorics, Number Theory.</p>
+<main>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>
+            I am a PhD candidate in pure mathematics at the University of Sydney (Oct 2022 &ndash; Feb 2026),
+            supervised by Andrew Mathas and Dani Tubbenhauer. My research interests lie in representation
+            theory and algebraic combinatorics, with a particular focus on KLR (quiver Hecke) algebras,
+            alcove geometry and related combinatorics.
+        </p>
+        <p>
+            Prior to my PhD, I obtained a Master in Mathematics from HSE University (Moscow), and a Bachelor
+            in Mathematics (Honors College) from Beihang University, including an exchange year at
+            Texas A&amp;M University.
+        </p>
     </section>
 
-    <section>
+    <section id="research-interests">
+        <h2>Research interests</h2>
+        <ul class="two-column-list">
+            <li>Representation theory of KLR (quiver Hecke) and KLRW algebras</li>
+            <li>Alcove geometry and affine Weyl groups</li>
+            <li>Decomposition numbers and Specht modules</li>
+            <li>Algebraic combinatorics of partitions, cores and weights</li>
+            <li>Number theory and arithmetic aspects (earlier work)</li>
+        </ul>
+    </section>
+
+    <section id="publications">
+        <h2>Publications &amp; preprints</h2>
+
+        <div class="section-note">
+            In preparation:
+        </div>
+        <ul>
+            <li>
+                <strong>Rock Blocks of Cyclotomic KLR Algebras of type C<span style="vertical-align: super; font-size: 0.8em;">(1)</span><sub>e</sub></strong><br>
+                with Huang Lin. (in preparation)
+            </li>
+            <li>
+                <strong>Subdivision and Runner Removal Theorem</strong><br>
+                (in preparation)
+            </li>
+            <li>
+                <strong>Stingray Pattern of Dominant Weights</strong><br>
+                (in preparation)
+            </li>
+        </ul>
+
+        <div class="section-note">
+            Preprints:
+        </div>
+        <ul>
+            <li>
+                <strong>A Specht Filtration of Permutation Modules Over KLR Algebras</strong><br>
+                <a href="https://arxiv.org/abs/2506.15133">arXiv:2506.15133</a>
+            </li>
+            <li>
+                <strong>Subdivision of KLRW Algebras in Affine Type A</strong><br>
+                <a href="https://arxiv.org/abs/2405.14175">arXiv:2405.14175</a>
+            </li>
+        </ul>
+
+        <div class="section-note">
+            Theses:
+        </div>
+        <ul>
+            <li>
+                <strong>Semilinear Representations of Infinite Symmetric Groups Over Some Fields of Rational Functions</strong><br>
+                Master thesis, HSE University, supervised by Marat Rovinsky.
+            </li>
+            <li>
+                <strong>The Number of Rational Points of Elliptic Curves over Finite Fields</strong><br>
+                Bachelor thesis, supervised by Matt Papanikolas.
+            </li>
+        </ul>
+    </section>
+
+    <section id="education">
         <h2>Education</h2>
-        
-        <div class="item">
-            <div class="item-header">
-                <span>University of Sydney</span>
-                <span>Sydney, Australia</span>
-            </div>
-            <div class="item-sub">PhD in Mathematics | Oct 2022 – Feb 2026 (Expected)</div>
-            <div class="item-desc">Mentors: Andrew Mathas & Dani Tubbenhauer</div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">
-                <span>HSE University</span>
-                <span>Moscow, Russia</span>
-            </div>
-            <div class="item-sub">Master in Mathematics | Sep 2019 – June 2022</div>
-            <div class="item-desc">Mentor: Marat Rovinsky</div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">
-                <span>Texas A&M University</span>
-                <span>College Station, USA</span>
-            </div>
-            <div class="item-sub">Exchange Student | Sep 2018 – May 2019</div>
-            <div class="item-desc">Mentor: Matt. Papanikolas</div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">
-                <span>Beihang University</span>
-                <span>Beijing, China</span>
-            </div>
-            <div class="item-sub">Bachelor in Mathematics, Honors College | Sep 2015 – June 2019</div>
-            <div class="item-desc">Mentor: Sheng-Ming Ma</div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Research & Papers</h2>
-        
-        <div class="item">
-            <div class="item-header">Roquier Blocks of Cyclotomic KLR Algebras of Type C<sup>(1)</sup><sub>e</sub></div>
-            <div class="item-desc">Joint work with Huang Lin</div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">Subdivision and Runner Removal Theorem</div>
-            <div class="item-desc">In preparation</div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">Stingray Pattern of Dominant Weights</div>
-            <div class="item-desc">In preparation</div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">A Specht Filtration of Permutation Modules Over KLR Algebras</div>
-            <div class="item-desc"><a href="https://arxiv.org/abs/2506.15133">arXiv:2506.15133</a></div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">Subdivision of KLRW Algebras in Affine Type A</div>
-            <div class="item-desc"><a href="https://arxiv.org/abs/2405.14175">arXiv:2405.14175</a></div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">Semilinear Representations Of Infinite Symmetric Groups Over Some Fields of Rational Functions</div>
-            <div class="item-desc">
-                <a href="https://drive.google.com/file/d/1J8moMTO-GIk28iFnmI0D8qyssb-t9Id8/view?usp=sharing">Thesis for Master Degree</a> supervised by Marat Rovinsky
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">The Number of Rational Points of Elliptic Curves over Finite Fields</div>
-            <div class="item-desc">
-                <a href="https://drive.google.com/file/d/16R1BulPcxXzmL3_fQrhSX3y0yvIa4nWX/view?usp=sharing">Thesis for Bachelor Degree</a> supervised by Matt Papanikolas
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Seminars & Talks</h2>
-        
-        <div class="item">
-            <div class="item-header">How to index the alcoves <span style="font-weight:normal; font-size:0.9rem;">(Nov 28, 2025)</span></div>
-            <div class="item-desc">
-                <a href="https://sites.google.com/view/ifssydney/home">Informal Friday Seminar</a>, University of Sydney. 
-                [<a href="https://drive.google.com/file/d/1peIhHTluThK-fwZg1sa-KR3YFEdf9dOv/view?usp=drive_link">Notes</a>]
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">Stingray Pattern of Dominant Weights <span style="font-weight:normal; font-size:0.9rem;">(Nov 18, 2025)</span></div>
-            <div class="item-desc">
-                Contributed talk at <a href="https://9thaac.github.io/#talks">9-th Australian Algebra Conference</a>, La Trobe University. 
-                [<a href="https://drive.google.com/file/d/17Ve7GQ9726kwS7T1_3gVz8x1KiIfeQUu/view?usp=sharing">Slides</a>]
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">A Specht Filtration of Permutation Modules <span style="font-weight:normal; font-size:0.9rem;">(June 3, 2025)</span></div>
-            <div class="item-desc">
-                Lightning talk at <a href="https://www.maths.usyd.edu.au/u/repdown/#/Home">RepDown Conference</a>, University of Sydney. 
-                [<a href="https://www.maths.usyd.edu.au/u/repdown/slides/Tao-Qin-lightning.pdf">Slides</a>]
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">Introduction to Semilinear Representations <span style="font-weight:normal; font-size:0.9rem;">(Jan 3, 2025)</span></div>
-            <div class="item-desc">Huzhou Normal University. [<a href="https://drive.google.com/file/d/1peIhHTluThK-fwZg1sa-KR3YFEdf9dOv/view?usp=drive_link">Notes</a>]</div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">Fusion Product and Finkelberg's Results: Z<sub>≥0</sub> level <span style="font-weight:normal; font-size:0.9rem;">(Oct 30, 2024)</span></div>
-            <div class="item-desc">University of Sydney. [<a href="https://drive.google.com/file/d/1C9Fviaj_O6lAIo-oS6_MjFD7T_Rk_Kw_/view?usp=drive_link">Notes</a>]</div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Visits & Conferences</h2>
         <ul>
-            <li><strong>La Trobe University</strong> (Melbourne), 9th Australian Algebra Conference, Nov 2025.</li>
-            <li><strong>Huzhou Normal University</strong> (China), Visitor, Jan 2025.</li>
-            <li><strong>Beijing Institute of Technology</strong> (China), Visitor, Jan 2025.</li>
-            <li><strong>MATRIX</strong> (Melbourne), Tensor Categories, Quantum Symmetries, and Mathematical Physics, Nov 2024.</li>
-            <li><strong>University of York</strong> (UK), LMS Research School: Combinatorial representation theory, July 2024.</li>
-            <li><strong>Beijing Institute of Technology</strong> (China), Conference on Representation Theory, Geometry and Categorification, June 2024.</li>
-            <li><strong>University of Sydney</strong>, Magma Conference, Nov 2023.</li>
-            <li><strong>East China Normal University</strong> (Shanghai), Lie Theory Workshop, July 2023.</li>
-            <li><strong>OIST</strong> (Japan), Hecke Algebra Conference, June 2023.</li>
-            <li><strong>Morningside Center of Mathematics</strong> (Beijing), Visiting Student (RA), Sep 2020 – Aug 2021.</li>
+            <li>
+                <strong>University of Sydney</strong>, Sydney, Australia<br>
+                PhD in Mathematics, Oct 2022 &ndash; Feb 2026<br>
+                Supervisors: Andrew Mathas &amp; Dani Tubbenhauer
+            </li>
+            <li>
+                <strong>HSE University</strong>, Moscow, Russia<br>
+                Master in Mathematics, Sep 2019 &ndash; Jun 2022<br>
+                Supervisor: Marat Rovinsky
+            </li>
+            <li>
+                <strong>Texas A&amp;M University</strong>, College Station, USA<br>
+                Exchange student in Mathematics, Sep 2018 &ndash; May 2019<br>
+                Mentor: Matt Papanikolas
+            </li>
+            <li>
+                <strong>Beihang University</strong>, Beijing, China<br>
+                Bachelor in Mathematics, Honors College, Sep 2015 &ndash; Jun 2019<br>
+                Mentor: Sheng-Ming Ma
+            </li>
         </ul>
     </section>
 
-    <section>
-        <h2>Funding & Scholarships</h2>
+    <section id="talks">
+        <h2>Seminars &amp; talks</h2>
         <ul>
-            <li>Usyd Postgraduate Research Support Scheme (2023-2025)</li>
-            <li>HSE Graduate Scholarship (2019-2022)</li>
-            <li>Hua Loo-Keng Scholarship (2018)</li>
-            <li>National Encouragement Scholarship (2016-2018)</li>
+            <li>
+                <strong>Stingray Pattern of Dominant Weights</strong><br>
+                Contributed talk at the
+                <a href="https://9thaac.github.io/#talks">9th Australian Algebra Conference</a>,
+                La Trobe University, Nov 18, 2025.<br>
+                Slides:
+                <a href="https://drive.google.com/file/d/17Ve7GQ9726kwS7T1_3gVz8x1KiIfeQUu/view?usp=sharing">PDF</a>.
+            </li>
+            <li>
+                <strong>A Specht Filtration of Permutation Modules</strong><br>
+                Lightning talk at
+                <a href="https://www.maths.usyd.edu.au/u/repdown/#/Home">RepDown Conference</a>,
+                University of Sydney, Jun 3, 2025.<br>
+                Slides:
+                <a href="https://www.maths.usyd.edu.au/u/repdown/slides/Tao-Qin-lightning.pdf">PDF</a>.
+            </li>
+            <li>
+                <strong>Introduction to Semilinear Representations</strong><br>
+                Huzhou Normal University, Jan 3, 2025.<br>
+                Notes:
+                <a href="https://drive.google.com/file/d/1peIhHTluThK-fwZg1sa-KR3YFEdf9dOv/view?usp=drive_link">PDF</a>.
+            </li>
+            <li>
+                <strong>Fusion Product and Finkelberg's Results: &Zopf;<sub>&ge; 0</sub> level</strong><br>
+                University of Sydney, Oct 30, 2024.<br>
+                Notes:
+                <a href="https://drive.google.com/file/d/1C9Fviaj_O6lAIo-oS6_MjFD7T_Rk_Kw_/view?usp=drive_link">PDF</a>,
+                related website:
+                <a href="https://sites.google.com/view/klequivalences/home">KL equivalences</a>.
+            </li>
+            <li>
+                <strong>KLRW algebras, Subdivision, Decomposition numbers</strong><br>
+                Beijing Institute of Technology, Jun 11, 2024.<br>
+                Notes:
+                <a href="https://drive.google.com/file/d/1k1iQSMyF8osLQ5FQXoAIoHrP1lIx6xJg/view?usp=drive_link">PDF</a>.
+            </li>
+            <li>
+                <strong>Smooth Representations of Totally Disconnected Groups</strong><br>
+                HSE University, Spring 2022.<br>
+                Information:
+                <a href="https://drive.google.com/file/d/1Ndqt1Wn6rDBKlHXBYy54X7Lgj_whaxVs/view?usp=sharing">overview</a>;
+                notes:
+                <a href="https://drive.google.com/file/d/1qzFALNC-0PIUSnqjA8MyHdr6w3bslIJs/view?usp=sharing">Notes&nbsp;1</a>,
+                <a href="https://drive.google.com/file/d/1u65hq5lTFrvOdii8lEnShVQrUgbGHG69/view?usp=sharing">Notes&nbsp;2</a>.
+            </li>
         </ul>
     </section>
 
-    <section>
-        <h2>Teaching Experience</h2>
-        
-        <div class="item">
-            <div class="item-header">Casual Tutor, University of Sydney</div>
-            <ul style="margin-top:5px;">
-                <li>ODE (Math1062) - 2025</li>
-                <li>Calculus (Math1061) - 2025</li>
-                <li>Linear Algebra (Math1061) - 2024-2025</li>
-                <li>Discrete Math (Math1004) - 2024</li>
-            </ul>
-        </div>
-
-        <div class="item">
-            <div class="item-header">Teaching Assistant, Beihang University</div>
-            <div class="item-desc">Real Variables (Spring 2018) - Marking</div>
-        </div>
+    <section id="visits">
+        <h2>Visits &amp; activities</h2>
+        <ul>
+            <li>
+                <strong>La Trobe University</strong>, Melbourne, Australia<br>
+                Participant of the
+                <a href="https://9thaac.github.io/#talks">9th Australian Algebra Conference</a>,
+                Nov 2025.
+            </li>
+            <li>
+                <strong>Huzhou Normal University</strong>, Huzhou, China<br>
+                Visitor, Jan 2025.
+            </li>
+            <li>
+                <strong>Beijing Institute of Technology</strong>, Beijing, China<br>
+                Visitor, Jan 2025.
+            </li>
+            <li>
+                <strong>MATRIX</strong>, near Melbourne, Australia<br>
+                Participant of
+                <a href="https://www.matrix-inst.org.au/events/tensor-categories-quantum-symmetries-and-mathematical-physics/">
+                    Tensor Categories, Quantum Symmetries, and Mathematical Physics
+                </a>, Nov 2024.
+            </li>
+            <li>
+                <strong>University of York</strong>, York, UK<br>
+                Participant of the
+                <a href="https://sites.google.com/view/york-lms-research-school-2024/home">
+                    LMS Research School: Combinatorial representation theory and diagrammatic categorification
+                </a><br>
+                and
+                <a href="https://sites.google.com/view/diagrammatic-learning/home">
+                    Diagrammatic Intuition and Deep Learning in Mathematics
+                </a>, Jul 2024.
+            </li>
+            <li>
+                <strong>Beijing Institute of Technology</strong>, Beijing, China<br>
+                Visitor and participant of the
+                <a href="https://math.bit.edu.cn/xsbg/06d41b7f2b3049528f53f83c1f89fa79.htm">
+                    Conference on Representation Theory, Geometry and Categorification
+                </a>, Jun 2024.
+            </li>
+            <li>
+                <strong>University of Sydney</strong>, Sydney, Australia<br>
+                Participant of the
+                <a href="https://www.maths.usyd.edu.au/u/comalg/">Magma Conference</a>, Nov 2023.
+            </li>
+            <li>
+                <strong>Beijing Institute of Technology</strong>, Beijing, China<br>
+                Participant of Summer School, Jul &ndash; Aug 2023.
+            </li>
+            <li>
+                <strong>East China Normal University</strong>, Shanghai, China<br>
+                Participant of the
+                <a href="https://math.ecnu.edu.cn/academia/lie2023/#courses">
+                    Lie Theory Workshop
+                </a>, Jul 2023.
+            </li>
+            <li>
+                <strong>Okinawa Institute of Science and Technology</strong>, Okinawa, Japan<br>
+                Participant of
+                <a href="https://groups.oist.jp/hecke-algebras-and-categorification">
+                    Representation Theory of Hecke Algebras and Categorification
+                </a>, Jun 2023.
+            </li>
+            <li>
+                <strong>Beijing Institute of Technology</strong>, Beijing, China<br>
+                Visiting student, Mar &ndash; May 2023.
+            </li>
+            <li>
+                <strong>Morningside Center of Mathematics</strong>, Beijing, China<br>
+                <a href="http://www.mcm.ac.cn/people/visitors/">
+                    Visiting student (RA)
+                </a>, Sep 2020 &ndash; Aug 2021.
+            </li>
+        </ul>
     </section>
 
-    <section>
+    <section id="funding">
+        <h2>Funding &amp; scholarships</h2>
+        <ul>
+            <li>Usyd Postgraduate Research Support Scheme, 2023 &ndash; 2025.</li>
+            <li>HSE Graduate Scholarship, 2019 &ndash; 2022.</li>
+            <li>Hua Loo-Keng Scholarship, 2018.</li>
+            <li>National Encouragement Scholarship, 2016 &ndash; 2018.</li>
+        </ul>
+    </section>
+
+    <section id="teaching">
+        <h2>Teaching experience</h2>
+        <ul>
+            <li>
+                <strong>Casual Tutor</strong>, School of Mathematics, University of Sydney<br>
+                <ul>
+                    <li>ODE (MATH1062), 2025.</li>
+                    <li>Linear Algebra (MATH1061), 2024 &ndash; 2025.</li>
+                    <li>Discrete Mathematics (MATH1004), 2024.</li>
+                    <li>Calculus (MATH1061), 2025.</li>
+                </ul>
+                Responsibilities: tutoring and marking.
+            </li>
+            <li>
+                <strong>Teaching Assistant</strong>, Department of Mathematics, Beihang University<br>
+                <ul>
+                    <li>Real Variables, Spring 2018.</li>
+                </ul>
+                Responsibilities: marking.
+            </li>
+        </ul>
+    </section>
+
+    <section id="skills">
         <h2>Skills</h2>
-        <p><strong>Programming:</strong> LaTeX, Sage, C, Mathematica</p>
-        <p><strong>Languages:</strong> Chinese (Native), English (Fluent)</p>
-    </section>
-
-    <section>
-        <h2>Notes & Solutions</h2>
         <ul>
-            <li><strong>Algebraic Geometry and Arithmetic Curves (Qing Liu):</strong> <a href="https://drive.google.com/file/d/1WJUXSY1VsINwLrGgRuyEdgviCAWchwxa/view?usp=sharing">Solutions to Exercises</a></li>
-            <li><strong>Algebraic Number Theory (Jürgen Neukirch):</strong> <a href="https://drive.google.com/file/d/151dThZE-q9RZzLofYnSy0BEbj1BRctp1/view?usp=sharing">Solutions (Ch 1,2)</a></li>
-            <li><strong>Algebraic Geometry (Hartshorne):</strong> <a href="https://drive.google.com/file/d/17xCIdw8tnziD42T8L2hM6mMxAp8xwCfN/view?usp=sharing">Solutions (Ch 1)</a></li>
-            <li><strong>Modularity:</strong> <a href="https://drive.google.com/file/d/1v4PjxYs1c0sNKJepvVmyOTiOmYc3zkZ0/view?usp=sharing">Introduction to the Modularity Theorem</a></li>
+            <li>
+                <strong>Programming &amp; software</strong>: LaTeX, Sage, C, Mathematica.
+            </li>
+            <li>
+                <strong>Languages</strong>: Chinese (native), English (fluent).
+            </li>
         </ul>
     </section>
 
-    <footer style="text-align: center; font-size: 0.8rem; color: #888; margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px;">
-        &copy; 2025 Tao Qin. Last updated: November 2025.
-    </footer>
+    <section id="chinese">
+        <h2>中文简介</h2>
+        <p>
+            我目前在悉尼大学数学与统计学院攻读纯数学博士（2022 年 10 月至 2026 年 2 月），
+            导师为 Andrew Mathas 和 Dani Tubbenhauer。研究方向主要是 KLR（quiver Hecke）代数、
+            相关的表示论与组合论，以及 alcove 几何与 Kazhdan–Lusztig 多项式等。
+        </p>
+        <p>
+            此前，我在莫斯科高等经济学院（HSE University）获得数学硕士学位，
+            在北京航空航天大学荣誉学院获得数学学士学位，并在 Texas A&amp;M University
+            进行过一年的交换学习。
+        </p>
+        <p class="lang-note">
+            如需中文 CV 或更多资料，欢迎通过邮箱联系（tao.qin97 [at] gmail [dot] com）。
+        </p>
+    </section>
 
-</div>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>
+            Email: tao.qin97 [at] gmail [dot] com<br>
+            Address: Carslaw Building F07, School of Mathematics and Statistics, University of Sydney<br>
+            GitHub: <a href="https://github.com/taoqin-math">https://github.com/taoqin-math</a>
+        </p>
+    </section>
+
+</main>
 
 </body>
 </html>
+
