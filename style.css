@@ -163,80 +163,31 @@ ul.modern-list li::before {
     color: #fff;
     text-decoration: none;
 }
-/* --- 阅读列表样式 (Reading List) --- */
-
-/* 1. 气泡按钮 (隐形标签) */
-.reading-bubble {
-    display: inline-block;
-    background-color: #f0f2f5;
-    color: #555;
-    padding: 8px 16px;
-    border-radius: 50px; /* 胶囊形状 */
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid #e1e4e8;
-    margin-top: 20px;
-    list-style: none; /* 隐藏默认三角 */
-    font-weight: 600;
+/* --- 神秘气泡按钮 (Mystery Bubble) --- */
+.mystery-bubble {
+    display: block;             /* 独占一行 */
+    margin-top: 15px;           /* 与上方菜单的距离 */
+    padding: 8px 15px;
+    border-radius: 25px;        /* 圆润的气泡形状 */
+    background-color: #f0f2f5;  /* 默认浅灰背景 */
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    
+    /* --- 核心模糊特效 --- */
+    filter: blur(4px);          /* 默认模糊 4px，看不清字 */
+    opacity: 0.4;               /* 默认半透明，很低调 */
+    transform: scale(0.95);     /* 稍微缩小 */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* 平滑过渡动画 */
 }
 
-.reading-bubble:hover {
-    background-color: var(--accent);
-    color: white;
-    border-color: var(--accent);
-    transform: translateY(-2px);
-}
-
-/* 隐藏 details 默认的小三角 */
-.reading-bubble::-webkit-details-marker { display: none; }
-
-/* 2. 展开后的容器 */
-.reading-list-container {
-    margin-top: 15px;
-    max-height: 400px; /* 限制高度 */
-    overflow-y: auto;  /* 超出部分滚动 */
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 20px;
-    background: #fff;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
-}
-
-/* 滚动条美化 */
-.reading-list-container::-webkit-scrollbar { width: 6px; }
-.reading-list-container::-webkit-scrollbar-thumb { background-color: #ccc; border-radius: 3px; }
-
-/* 3. 书目条目 */
-.book-item {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px dashed #eee;
-    padding: 8px 0;
-    font-size: 0.95rem;
-}
-
-.book-item:last-child { border-bottom: none; }
-
-.book-date {
-    color: #999;
-    font-size: 0.85rem;
-    min-width: 100px;
-    text-align: right;
-}
-
-.book-info {
-    flex: 1;
-    margin-right: 15px;
-}
-
-.book-title {
-    font-weight: 600;
-    color: var(--primary);
-}
-
-.book-author {
-    color: #666;
-    font-size: 0.9rem;
-    margin-left: 5px;
+/* 鼠标悬停时的状态 */
+.mystery-bubble:hover {
+    filter: blur(0);            /* 清除模糊，变清晰 */
+    opacity: 1;                 /* 完全不透明 */
+    transform: scale(1.05);     /* 微微放大，有弹性感 */
+    background-color: var(--accent); /* 变成主题蓝色 */
+    color: white;               /* 文字变白 */
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3); /* 添加光晕 */
 }
