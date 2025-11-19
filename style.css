@@ -145,3 +145,21 @@ ul.modern-list li::before {
     .main-content { margin-left: 0; padding: 40px 20px; }
     .nav-links a.active { border-right: none; color: var(--accent); text-decoration: underline; }
 }
+/* --- Language Toggle Button --- */
+.lang-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 15px;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.lang-btn:hover {
+    background-color: var(--primary);
+    color: #fff;
+    text-decoration: none;
+}
