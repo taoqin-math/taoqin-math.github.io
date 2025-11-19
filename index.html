@@ -29,7 +29,7 @@
         }
 
         a { text-decoration: none; color: var(--accent); transition: color 0.2s; }
-        a:hover { color: #1d6fa5; }
+        a:hover { color: #1d6fa5; text-decoration: underline; }
 
         /* --- 2. 侧边栏 (Sidebar) --- */
         .sidebar {
@@ -42,6 +42,7 @@
             border-right: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
+            z-index: 100;
         }
 
         .profile-name {
@@ -69,7 +70,7 @@
         .contact-info .email {
             display: block;
             margin-bottom: 4px;
-            font-family: monospace; /* 让邮箱看起来像代码，便于识别 */
+            font-family: monospace;
         }
 
         /* 导航菜单 */
@@ -91,17 +92,19 @@
             display: block;
             padding: 8px 0;
             border-bottom: 2px solid transparent;
+            text-decoration: none; /* 导航链接默认无下划线 */
         }
 
         .nav-links a:hover {
             color: var(--accent);
-            padding-left: 5px; /* 悬停时轻微右移 */
+            padding-left: 5px;
+            text-decoration: none;
         }
 
         /* --- 3. 主要内容区域 (Main Content) --- */
         .main-content {
             flex: 1;
-            margin-left: 280px; /* 留出侧边栏宽度 */
+            margin-left: 280px;
             padding: 60px 80px;
             background-color: var(--bg-content);
             scroll-behavior: smooth;
@@ -109,7 +112,7 @@
 
         section {
             margin-bottom: 80px;
-            scroll-margin-top: 40px; /* 锚点定位偏移 */
+            scroll-margin-top: 40px;
         }
 
         .section-title {
@@ -198,21 +201,32 @@
             padding: 0;
         }
         ul.modern-list li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             position: relative;
-            padding-left: 20px;
+            padding-left: 25px;
         }
         ul.modern-list li::before {
             content: "•";
             color: var(--accent);
             font-weight: bold;
+            font-size: 1.2em;
             position: absolute;
             left: 0;
+            top: -2px;
+        }
+        .list-header {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        .list-details {
+            font-size: 0.95rem;
+            color: var(--text-light);
         }
         .list-date {
             font-size: 0.85rem;
             color: #888;
-            margin-left: 8px;
+            display: inline-block;
+            margin-left: 5px;
         }
 
         /* --- 响应式设计 (Mobile) --- */
@@ -332,52 +346,111 @@
             
             <h3 style="font-size: 1.2rem; color: #555; margin-top: 30px;">Theses</h3>
             <ul class="modern-list">
-                <li><strong>Semilinear Representations Of Infinite Symmetric Groups</strong> (Master Thesis). <span class="list-date">Sup: Marat Rovinsky</span></li>
-                <li><strong>The Number of Rational Points of Elliptic Curves</strong> (Bachelor Thesis). <span class="list-date">Sup: Matt Papanikolas</span></li>
+                <li>
+                    <span class="list-header">Semilinear Representations Of Infinite Symmetric Groups</span> (Master Thesis)<br>
+                    <span class="list-details">Supervised by Marat Rovinsky</span>
+                </li>
+                <li>
+                    <span class="list-header">The Number of Rational Points of Elliptic Curves</span> (Bachelor Thesis)<br>
+                    <span class="list-details">Supervised by Matt Papanikolas</span>
+                </li>
             </ul>
         </section>
 
         <section id="talks">
             <h2 class="section-title">Talks & Visits</h2>
             
-            <div style="margin-bottom: 30px;">
-                <h3 style="font-size: 1.2rem; margin-bottom: 15px;">Recent Talks</h3>
+            <div style="margin-bottom: 40px;">
+                <h3 style="font-size: 1.2rem; margin-bottom: 15px;">Seminars & Talks</h3>
                 <ul class="modern-list">
                     <li>
-                        <strong>How to index the alcoves</strong> <span class="list-date">Nov 28, 2025</span><br>
-                        <span style="font-size:0.9rem; color:#666;">Informal Friday Seminar, USyd</span>
+                        <strong>How to index the alcoves</strong> <span class="list-date">(Nov 28, 2025)</span><br>
+                        <span class="list-details">
+                            <a href="https://sites.google.com/view/ifssydney/home">Informal Friday Seminar</a>, University of Sydney
+                        </span>
                     </li>
                     <li>
-                        <strong>Stingray Pattern of Dominant Weights</strong> <span class="list-date">Nov 18, 2025</span><br>
-                        <span style="font-size:0.9rem; color:#666;">9th Australian Algebra Conference, La Trobe University</span>
-                         [<a href="https://drive.google.com/file/d/17Ve7GQ9726kwS7T1_3gVz8x1KiIfeQUu/view?usp=sharing">Slides</a>]
+                        <strong>Stingray Pattern of Dominant Weights</strong> <span class="list-date">(Nov 18, 2025)</span><br>
+                        <span class="list-details">
+                            Contributed talk at <a href="https://9thaac.github.io/#talks">9th Australian Algebra Conference</a>, La Trobe University.
+                            [<a href="https://drive.google.com/file/d/17Ve7GQ9726kwS7T1_3gVz8x1KiIfeQUu/view?usp=sharing">Slides</a>]
+                        </span>
                     </li>
                     <li>
-                        <strong>A Specht Filtration of Permutation Modules</strong> <span class="list-date">June 3, 2025</span><br>
-                        <span style="font-size:0.9rem; color:#666;">RepDown Conference, USyd</span>
-                         [<a href="https://www.maths.usyd.edu.au/u/repdown/slides/Tao-Qin-lightning.pdf">Slides</a>]
+                        <strong>A Specht Filtration of Permutation Modules</strong> <span class="list-date">(June 3, 2025)</span><br>
+                        <span class="list-details">
+                            Lightning talk at <a href="https://www.maths.usyd.edu.au/u/repdown/#/Home">RepDown Conference</a>, University of Sydney.
+                            [<a href="https://www.maths.usyd.edu.au/u/repdown/slides/Tao-Qin-lightning.pdf">Slides</a>]
+                        </span>
                     </li>
                     <li>
-                        <strong>Introduction to Semilinear Representations</strong> <span class="list-date">Jan 3, 2025</span><br>
-                        <span style="font-size:0.9rem; color:#666;">Huzhou Normal University</span>
-                         [<a href="https://drive.google.com/file/d/1peIhHTluThK-fwZg1sa-KR3YFEdf9dOv/view?usp=drive_link">Notes</a>]
+                        <strong>Introduction to Semilinear Representations</strong> <span class="list-date">(Jan 3, 2025)</span><br>
+                        <span class="list-details">
+                            Huzhou Normal University.
+                            [<a href="https://drive.google.com/file/d/1peIhHTluThK-fwZg1sa-KR3YFEdf9dOv/view?usp=drive_link">Notes</a>]
+                        </span>
                     </li>
                     <li>
-                        <strong>Fusion Product and Finkelberg's Results: Non-negative level</strong> <span class="list-date">Oct 30, 2024</span><br>
-                        <span style="font-size:0.9rem; color:#666;">USyd Seminar</span>
-                         [<a href="https://drive.google.com/file/d/1C9Fviaj_O6lAIo-oS6_MjFD7T_Rk_Kw_/view?usp=drive_link">Notes</a>]
+                        <strong>Fusion Product and Finkelberg's Results: Non-negative level</strong> <span class="list-date">(Oct 30, 2024)</span><br>
+                        <span class="list-details">
+                            University of Sydney Seminar.
+                            [<a href="https://drive.google.com/file/d/1C9Fviaj_O6lAIo-oS6_MjFD7T_Rk_Kw_/view?usp=drive_link">Notes</a>]
+                        </span>
                     </li>
                 </ul>
             </div>
 
             <div>
-                <h3 style="font-size: 1.2rem; margin-bottom: 15px;">Selected Visits & Conferences</h3>
+                <h3 style="font-size: 1.2rem; margin-bottom: 15px;">Visits & Conferences</h3>
                 <ul class="modern-list">
-                    <li><strong>La Trobe University</strong>, 9th Australian Algebra Conference (Nov 2025)</li>
-                    <li><strong>Beijing & Huzhou</strong>, Academic Visits (Jan 2025)</li>
-                    <li><strong>MATRIX</strong> (Melbourne), Tensor Categories & Quantum Symmetries (Nov 2024)</li>
-                    <li><strong>University of York</strong> (UK), LMS Research School (July 2024)</li>
-                    <li><strong>OIST</strong> (Japan), Hecke Algebra Conference (June 2023)</li>
+                    <li>
+                        <strong>La Trobe University</strong> (Melbourne) <span class="list-date">Nov 2025</span><br>
+                        <span class="list-details">Participant of <a href="https://9thaac.github.io/#talks">9th Australian Algebra Conference</a></span>
+                    </li>
+                    <li>
+                        <strong>Huzhou Normal University</strong> (China) <span class="list-date">Jan 2025</span><br>
+                        <span class="list-details">Visitor</span>
+                    </li>
+                    <li>
+                        <strong>Beijing Institute of Technology</strong> (China) <span class="list-date">Jan 2025</span><br>
+                        <span class="list-details">Visitor</span>
+                    </li>
+                    <li>
+                        <strong>MATRIX</strong> (Melbourne) <span class="list-date">Nov 2024</span><br>
+                        <span class="list-details">Participant of <a href="https://www.matrix-inst.org.au/events/tensor-categories-quantum-symmetries-and-mathematical-physics/">Tensor Categories, Quantum Symmetries, and Mathematical Physics</a></span>
+                    </li>
+                    <li>
+                        <strong>University of York</strong> (UK) <span class="list-date">July 2024</span><br>
+                        <span class="list-details">Participant of <a href="https://sites.google.com/view/york-lms-research-school-2024/home">LMS Research School</a> and <a href="https://sites.google.com/view/diagrammatic-learning/home">Diagrammatic Intuition Workshop</a></span>
+                    </li>
+                    <li>
+                        <strong>Beijing Institute of Technology</strong> (China) <span class="list-date">June 2024</span><br>
+                        <span class="list-details">Visitor and participant of <a href="https://math.bit.edu.cn/xsbg/06d41b7f2b3049528f53f83c1f89fa79.htm">Conference on Representation Theory, Geometry and Categorification</a></span>
+                    </li>
+                    <li>
+                        <strong>University of Sydney</strong> (Australia) <span class="list-date">Nov 2023</span><br>
+                        <span class="list-details">Participant of the <a href="https://www.maths.usyd.edu.au/u/comalg/">Magma Conference</a></span>
+                    </li>
+                    <li>
+                        <strong>Beijing Institute of Technology</strong> (China) <span class="list-date">July – Aug 2023</span><br>
+                        <span class="list-details">Participant of Summer School</span>
+                    </li>
+                    <li>
+                        <strong>East China Normal University</strong> (Shanghai) <span class="list-date">July 2023</span><br>
+                        <span class="list-details">Participant of the <a href="https://math.ecnu.edu.cn/academia/lie2023/#courses">Lie Theory Workshop</a></span>
+                    </li>
+                    <li>
+                        <strong>Okinawa Institute of Science and Technology (OIST)</strong> (Japan) <span class="list-date">June 2023</span><br>
+                        <span class="list-details">Participant of the <a href="https://groups.oist.jp/hecke-algebras-and-categorification">Hecke Algebra Conference</a></span>
+                    </li>
+                    <li>
+                        <strong>Beijing Institute of Technology</strong> (China) <span class="list-date">March – May 2023</span><br>
+                        <span class="list-details">Visiting Student</span>
+                    </li>
+                    <li>
+                        <strong>Morningside Center of Mathematics</strong> (Beijing) <span class="list-date">Sep 2020 – Aug 2021</span><br>
+                        <span class="list-details"><a href="http://www.mcm.ac.cn/people/visitors/">Visiting Student (RA)</a></span>
+                    </li>
                 </ul>
             </div>
         </section>
