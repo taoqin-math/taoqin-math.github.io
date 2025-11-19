@@ -1,0 +1,147 @@
+/* style.css */
+
+:root {
+    --primary: #2c3e50;       /* 深色主调 */
+    --accent: #3498db;        /* 亮蓝强调色 */
+    --bg-sidebar: #f8f9fa;    /* 侧边栏背景 */
+    --bg-content: #ffffff;    /* 内容背景 */
+    --text-main: #222;        /* 正文颜色（加深） */
+    --text-light: #555;       /* 辅助文字颜色 */
+    --border-color: #e9ecef;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    /* 基础字体调大到 18px (1.125rem)，行高增加 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-main);
+    display: flex;
+    min-height: 100vh;
+    font-size: 1.125rem; 
+    line-height: 1.7; 
+}
+
+a { text-decoration: none; color: var(--accent); transition: color 0.2s; }
+a:hover { color: #1d6fa5; text-decoration: underline; }
+
+/* --- 侧边栏 --- */
+.sidebar {
+    width: 300px; /* 稍微加宽 */
+    background-color: var(--bg-sidebar);
+    padding: 50px 35px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name {
+    font-size: 2.2rem; /* 名字加大 */
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.profile-role {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.contact-info {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 50px;
+    line-height: 1.8;
+}
+.contact-info .email { display: block; font-family: monospace; }
+
+/* 导航菜单 */
+.nav-links { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+.nav-links li { margin-bottom: 18px; }
+.nav-links a {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1.25rem; /* 菜单字体加大 */
+    display: block;
+    padding: 5px 0;
+}
+.nav-links a:hover { color: var(--accent); padding-left: 8px; text-decoration: none; }
+.nav-links a.active { color: var(--accent); border-right: 3px solid var(--accent); } /* 当前页面高亮 */
+
+/* --- 右侧内容 --- */
+.main-content {
+    flex: 1;
+    margin-left: 300px;
+    padding: 80px 100px; /* 增加内边距，更有呼吸感 */
+    background-color: var(--bg-content);
+    max-width: 1200px; /* 防止在大屏幕上太宽 */
+}
+
+.section-title {
+    font-size: 2.2rem; /* 标题加大 */
+    color: var(--primary);
+    border-bottom: 3px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+/* --- 组件样式 --- */
+.edu-item {
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 4px solid var(--border-color);
+}
+.edu-school { font-weight: 700; font-size: 1.3rem; color: var(--primary); }
+.edu-meta { color: var(--text-light); font-size: 1.05rem; margin-top: 5px; }
+
+.paper-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+.paper-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    transition: transform 0.2s;
+}
+.paper-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.paper-title { font-weight: 700; font-size: 1.3rem; margin-bottom: 10px; color: var(--primary); line-height: 1.4; }
+.paper-authors { font-style: italic; color: #666; font-size: 1.05rem; margin-bottom: 12px; }
+.paper-status {
+    display: inline-block; padding: 4px 10px; border-radius: 5px;
+    font-size: 0.9rem; font-weight: 600; background-color: #f0f0f0; color: #555;
+}
+.status-arxiv { background-color: #e3f2fd; color: #1565c0; }
+.status-prep { background-color: #fff3e0; color: #e65100; }
+
+/* 列表样式 */
+ul.modern-list { list-style: none; padding: 0; }
+ul.modern-list li { margin-bottom: 25px; position: relative; padding-left: 30px; }
+ul.modern-list li::before {
+    content: "•"; color: var(--accent); font-weight: bold;
+    font-size: 1.5em; position: absolute; left: 0; top: -5px;
+}
+.list-header { font-weight: 700; color: var(--primary); font-size: 1.15rem; }
+.list-details { font-size: 1.05rem; color: var(--text-light); display: block; margin-top: 4px; }
+.list-date { font-size: 0.95rem; color: #999; font-weight: normal; margin-left: 8px; }
+
+/* 表格样式 */
+.teaching-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 1.1rem; }
+.teaching-table th, .teaching-table td { text-align: left; padding: 18px 20px; border-bottom: 1px solid #eee; }
+.teaching-table th { color: var(--primary); font-weight: 700; border-bottom: 2px solid #ccc; }
+
+/* 移动端适配 */
+@media (max-width: 900px) {
+    body { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; position: relative; padding: 40px 20px; border-right: none; border-bottom: 1px solid var(--border-color); }
+    .main-content { margin-left: 0; padding: 40px 20px; }
+    .nav-links a.active { border-right: none; color: var(--accent); text-decoration: underline; }
+}
