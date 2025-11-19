@@ -3,496 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tao Qin - PhD Student in Mathematics, University of Sydney">
-    <title>Tao Qin | Mathematics</title>
-    <style>
-        /* --- 1. 基础设置 --- */
-        :root {
-            --primary: #2c3e50; /* 深蓝灰 */
-            --accent: #3498db;  /* 亮蓝 */
-            --bg-sidebar: #f4f7f6;
-            --bg-content: #ffffff;
-            --text-main: #333;
-            --text-light: #666;
-            --border-color: #e1e4e8;
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-main);
-            display: flex;
-            min-height: 100vh;
-        }
-
-        a { text-decoration: none; color: var(--accent); transition: color 0.2s; }
-        a:hover { color: #1d6fa5; text-decoration: underline; }
-
-        /* --- 2. 侧边栏 (Sidebar) --- */
-        .sidebar {
-            width: 280px;
-            background-color: var(--bg-sidebar);
-            padding: 40px 30px;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            z-index: 100;
-        }
-
-        .profile-name {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 5px;
-            line-height: 1.2;
-        }
-
-        .profile-role {
-            font-size: 1rem;
-            color: var(--text-light);
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .contact-info {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .contact-info .email {
-            display: block;
-            margin-bottom: 4px;
-            font-family: monospace;
-        }
-
-        /* 导航菜单 */
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            flex-grow: 1;
-        }
-
-        .nav-links li {
-            margin-bottom: 15px;
-        }
-
-        .nav-links a {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: block;
-            padding: 8px 0;
-            border-bottom: 2px solid transparent;
-            text-decoration: none; /* 导航链接默认无下划线 */
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-            text-decoration: none;
-        }
-
-        /* --- 3. 主要内容区域 (Main Content) --- */
-        .main-content {
-            flex: 1;
-            margin-left: 280px;
-            padding: 60px 80px;
-            background-color: var(--bg-content);
-            scroll-behavior: smooth;
-        }
-
-        section {
-            margin-bottom: 80px;
-            scroll-margin-top: 40px;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            color: var(--primary);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-        }
-
-        /* --- 模块：About / Education --- */
-        .edu-item {
-            margin-bottom: 20px;
-            padding-left: 15px;
-            border-left: 3px solid var(--border-color);
-        }
-        .edu-school { font-weight: bold; font-size: 1.1rem; }
-        .edu-meta { color: var(--text-light); font-size: 0.95rem; }
-
-        /* --- 模块：Research Cards --- */
-        .paper-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        .paper-card {
-            background: #fff;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .paper-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-color: var(--accent);
-        }
-
-        .paper-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: var(--primary);
-        }
-
-        .paper-authors {
-            font-style: italic;
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 8px;
-        }
-
-        .paper-status {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            background-color: #f0f0f0;
-            color: #555;
-        }
-        .status-arxiv { background-color: #e3f2fd; color: #1565c0; }
-        .status-prep { background-color: #fff3e0; color: #e65100; }
-
-        /* --- 模块：Teaching Table --- */
-        .teaching-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .teaching-table th, .teaching-table td {
-            text-align: left;
-            padding: 12px 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .teaching-table th {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* --- 模块：List (Talks/Visits) --- */
-        ul.modern-list {
-            list-style: none;
-            padding: 0;
-        }
-        ul.modern-list li {
-            margin-bottom: 15px;
-            position: relative;
-            padding-left: 25px;
-        }
-        ul.modern-list li::before {
-            content: "•";
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.2em;
-            position: absolute;
-            left: 0;
-            top: -2px;
-        }
-        .list-header {
-            font-weight: 600;
-            color: var(--text-main);
-        }
-        .list-details {
-            font-size: 0.95rem;
-            color: var(--text-light);
-        }
-        .list-date {
-            font-size: 0.85rem;
-            color: #888;
-            display: inline-block;
-            margin-left: 5px;
-        }
-
-        /* --- 响应式设计 (Mobile) --- */
-        @media (max-width: 850px) {
-            body { flex-direction: column; }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 30px 20px;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-            }
-            .main-content {
-                margin-left: 0;
-                padding: 30px 20px;
-            }
-            .nav-links { display: flex; flex-wrap: wrap; gap: 15px; }
-            .nav-links li { margin-bottom: 0; }
-            .nav-links a { padding: 5px 10px; background: #fff; border-radius: 4px; border: 1px solid #eee; }
-        }
-    </style>
-</head>
+    <title>Tao Qin | Home</title>
+    <link rel="stylesheet" href="style.css"> </head>
 <body>
-
     <aside class="sidebar">
         <div>
             <div class="profile-name">Tao Qin</div>
             <div class="profile-role">PhD Candidate in Mathematics</div>
             <div class="contact-info">
-                <p style="margin: 0 0 10px 0;">University of Sydney<br>Carslaw Building F07</p>
+                <p style="margin: 0 0 15px 0;">University of Sydney<br>Carslaw Building F07</p>
                 <span class="email">tao.qin97 [at] gmail.com</span>
                 <span class="email">tao.qin [at] sydney.edu.au</span>
             </div>
         </div>
-
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#talks">Talks & Visits</a></li>
-            <li><a href="#teaching">Teaching</a></li>
+            <li><a href="index.html" class="active">About Me</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="talks.html">Talks & Visits</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
         </ul>
-        
-        <div style="margin-top: auto; font-size: 0.8rem; color: #999;">
-            &copy; 2025 Tao Qin
-        </div>
+        <div style="margin-top: auto; font-size: 0.9rem; color: #999;">&copy; 2025 Tao Qin</div>
     </aside>
 
     <main class="main-content">
+        <h2 class="section-title">About Me</h2>
+        <p>
+            I am a PhD student in Mathematics at the University of Sydney, working under the supervision of 
+            <strong>Andrew Mathas</strong> and <strong>Dani Tubbenhauer</strong>. 
+        </p>
+        <p>
+            My research interests broadly lie in <strong>Representation Theory</strong>, <strong>Algebraic Combinatorics</strong>, and <strong>Many Other Interesting and Cool things</strong>.
+        </p>
+        <p>
+            Specifically, I am interested in <strong>KLR algebras</strong>, <strong>Hecke algebras</strong>, and related <strong>Combinatorics</strong>.
+        </p>
+
+        <h3 style="font-size: 1.5rem; color: #444; margin-top: 50px; margin-bottom: 25px;">Education</h3>
         
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
-            <p>
-                I am a PhD student in Mathematics at the University of Sydney, working under the supervision of 
-                <strong>Andrew Mathas</strong> and <strong>Dani Tubbenhauer</strong>. 
-            </p>
-            <p>
-                My research interests broadly lie in <strong>Representation Theory</strong>, <strong>Algebraic Combinatorics</strong>, and <strong>Number Theory</strong>.
-                Specifically, I am interested in KLR algebras, crystal bases, and their connections to geometry.
-            </p>
-
-            <h3 style="font-size: 1.2rem; color: #555; margin-top: 30px;">Education</h3>
-            
-            <div class="edu-item">
-                <div class="edu-school">University of Sydney</div>
-                <div class="edu-meta">PhD in Mathematics | Oct 2022 – Feb 2026 (Expected)</div>
-            </div>
-            <div class="edu-item">
-                <div class="edu-school">HSE University (Moscow)</div>
-                <div class="edu-meta">Master in Mathematics | 2019 – 2022</div>
-            </div>
-            <div class="edu-item">
-                <div class="edu-school">Beihang University (Beijing)</div>
-                <div class="edu-meta">Bachelor in Mathematics | 2015 – 2019</div>
-            </div>
-        </section>
-
-        <section id="research">
-            <h2 class="section-title">Research & Papers</h2>
-            <div class="paper-grid">
-                
-                <div class="paper-card">
-                    <div class="paper-title">Roquier Blocks of Cyclotomic KLR Algebras of Type C</div>
-                    <div class="paper-authors">Joint work with Huang Lin</div>
-                    <span class="paper-status status-prep">In preparation</span>
-                </div>
-
-                <div class="paper-card">
-                    <div class="paper-title">Stingray Pattern of Dominant Weights</div>
-                    <div class="paper-authors">Solo author</div>
-                    <span class="paper-status status-prep">To appear on arXiv</span>
-                </div>
-
-                <div class="paper-card">
-                    <div class="paper-title">Subdivision and Runner Removal Theorem</div>
-                    <div class="paper-authors">Solo author</div>
-                    <span class="paper-status status-prep">In preparation</span>
-                </div>
-
-                <div class="paper-card">
-                    <div class="paper-title">A Specht Filtration of Permutation Modules Over KLR Algebras</div>
-                    <div class="paper-authors">Solo author</div>
-                    <div style="margin-top:5px;">
-                        <a href="https://arxiv.org/abs/2506.15133" class="paper-status status-arxiv">arXiv:2506.15133</a>
-                    </div>
-                </div>
-
-                <div class="paper-card">
-                    <div class="paper-title">Subdivision of KLRW Algebras in Affine Type A</div>
-                    <div class="paper-authors">Solo author</div>
-                    <div style="margin-top:5px;">
-                        <a href="https://arxiv.org/abs/2405.14175" class="paper-status status-arxiv">arXiv:2405.14175</a>
-                    </div>
-                </div>
-
-            </div>
-            
-            <h3 style="font-size: 1.2rem; color: #555; margin-top: 30px;">Theses</h3>
-            <ul class="modern-list">
-                <li>
-                    <span class="list-header">Semilinear Representations Of Infinite Symmetric Groups</span> (Master Thesis)<br>
-                    <span class="list-details">Supervised by Marat Rovinsky</span>
-                </li>
-                <li>
-                    <span class="list-header">The Number of Rational Points of Elliptic Curves</span> (Bachelor Thesis)<br>
-                    <span class="list-details">Supervised by Matt Papanikolas</span>
-                </li>
-            </ul>
-        </section>
-
-        <section id="talks">
-            <h2 class="section-title">Talks & Visits</h2>
-            
-            <div style="margin-bottom: 40px;">
-                <h3 style="font-size: 1.2rem; margin-bottom: 15px;">Seminars & Talks</h3>
-                <ul class="modern-list">
-                    <li>
-                        <strong>How to index the alcoves</strong> <span class="list-date">(Nov 28, 2025)</span><br>
-                        <span class="list-details">
-                            <a href="https://sites.google.com/view/ifssydney/home">Informal Friday Seminar</a>, University of Sydney
-                        </span>
-                    </li>
-                    <li>
-                        <strong>Stingray Pattern of Dominant Weights</strong> <span class="list-date">(Nov 18, 2025)</span><br>
-                        <span class="list-details">
-                            Contributed talk at <a href="https://9thaac.github.io/#talks">9th Australian Algebra Conference</a>, La Trobe University.
-                            [<a href="https://drive.google.com/file/d/17Ve7GQ9726kwS7T1_3gVz8x1KiIfeQUu/view?usp=sharing">Slides</a>]
-                        </span>
-                    </li>
-                    <li>
-                        <strong>A Specht Filtration of Permutation Modules</strong> <span class="list-date">(June 3, 2025)</span><br>
-                        <span class="list-details">
-                            Lightning talk at <a href="https://www.maths.usyd.edu.au/u/repdown/#/Home">RepDown Conference</a>, University of Sydney.
-                            [<a href="https://www.maths.usyd.edu.au/u/repdown/slides/Tao-Qin-lightning.pdf">Slides</a>]
-                        </span>
-                    </li>
-                    <li>
-                        <strong>Introduction to Semilinear Representations</strong> <span class="list-date">(Jan 3, 2025)</span><br>
-                        <span class="list-details">
-                            Huzhou Normal University.
-                            [<a href="https://drive.google.com/file/d/1peIhHTluThK-fwZg1sa-KR3YFEdf9dOv/view?usp=drive_link">Notes</a>]
-                        </span>
-                    </li>
-                    <li>
-                        <strong>Fusion Product and Finkelberg's Results: Non-negative level</strong> <span class="list-date">(Oct 30, 2024)</span><br>
-                        <span class="list-details">
-                            University of Sydney Seminar.
-                            [<a href="https://drive.google.com/file/d/1C9Fviaj_O6lAIo-oS6_MjFD7T_Rk_Kw_/view?usp=drive_link">Notes</a>]
-                        </span>
-                    </li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 style="font-size: 1.2rem; margin-bottom: 15px;">Visits & Conferences</h3>
-                <ul class="modern-list">
-                    <li>
-                        <strong>La Trobe University</strong> (Melbourne) <span class="list-date">Nov 2025</span><br>
-                        <span class="list-details">Participant of <a href="https://9thaac.github.io/#talks">9th Australian Algebra Conference</a></span>
-                    </li>
-                    <li>
-                        <strong>Huzhou Normal University</strong> (China) <span class="list-date">Jan 2025</span><br>
-                        <span class="list-details">Visitor</span>
-                    </li>
-                    <li>
-                        <strong>Beijing Institute of Technology</strong> (China) <span class="list-date">Jan 2025</span><br>
-                        <span class="list-details">Visitor</span>
-                    </li>
-                    <li>
-                        <strong>MATRIX</strong> (Melbourne) <span class="list-date">Nov 2024</span><br>
-                        <span class="list-details">Participant of <a href="https://www.matrix-inst.org.au/events/tensor-categories-quantum-symmetries-and-mathematical-physics/">Tensor Categories, Quantum Symmetries, and Mathematical Physics</a></span>
-                    </li>
-                    <li>
-                        <strong>University of York</strong> (UK) <span class="list-date">July 2024</span><br>
-                        <span class="list-details">Participant of <a href="https://sites.google.com/view/york-lms-research-school-2024/home">LMS Research School</a> and <a href="https://sites.google.com/view/diagrammatic-learning/home">Diagrammatic Intuition Workshop</a></span>
-                    </li>
-                    <li>
-                        <strong>Beijing Institute of Technology</strong> (China) <span class="list-date">June 2024</span><br>
-                        <span class="list-details">Visitor and participant of <a href="https://math.bit.edu.cn/xsbg/06d41b7f2b3049528f53f83c1f89fa79.htm">Conference on Representation Theory, Geometry and Categorification</a></span>
-                    </li>
-                    <li>
-                        <strong>University of Sydney</strong> (Australia) <span class="list-date">Nov 2023</span><br>
-                        <span class="list-details">Participant of the <a href="https://www.maths.usyd.edu.au/u/comalg/">Magma Conference</a></span>
-                    </li>
-                    <li>
-                        <strong>Beijing Institute of Technology</strong> (China) <span class="list-date">July – Aug 2023</span><br>
-                        <span class="list-details">Participant of Summer School</span>
-                    </li>
-                    <li>
-                        <strong>East China Normal University</strong> (Shanghai) <span class="list-date">July 2023</span><br>
-                        <span class="list-details">Participant of the <a href="https://math.ecnu.edu.cn/academia/lie2023/#courses">Lie Theory Workshop</a></span>
-                    </li>
-                    <li>
-                        <strong>Okinawa Institute of Science and Technology (OIST)</strong> (Japan) <span class="list-date">June 2023</span><br>
-                        <span class="list-details">Participant of the <a href="https://groups.oist.jp/hecke-algebras-and-categorification">Hecke Algebra Conference</a></span>
-                    </li>
-                    <li>
-                        <strong>Beijing Institute of Technology</strong> (China) <span class="list-date">March – May 2023</span><br>
-                        <span class="list-details">Visiting Student</span>
-                    </li>
-                    <li>
-                        <strong>Morningside Center of Mathematics</strong> (Beijing) <span class="list-date">Sep 2020 – Aug 2021</span><br>
-                        <span class="list-details"><a href="http://www.mcm.ac.cn/people/visitors/">Visiting Student (RA)</a></span>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="teaching">
-            <h2 class="section-title">Teaching</h2>
-            <p>I have served as a Casual Tutor at the University of Sydney for the following courses:</p>
-            
-            <table class="teaching-table">
-                <thead>
-                    <tr>
-                        <th>Course</th>
-                        <th>Code</th>
-                        <th>Period</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>ODE (Ordinary Differential Equations)</strong></td>
-                        <td>Math1062</td>
-                        <td>2025 Semester 2</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Calculus</strong></td>
-                        <td>Math1061</td>
-                        <td>2025 Semester 1 & 2</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Linear Algebra</strong></td>
-                        <td>Math1061</td>
-                        <td>2024 Semester 1 & 2<br>2025 Semester 1 & 2</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Discrete Mathematics</strong></td>
-                        <td>Math1004</td>
-                        <td>2024</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
+        <div class="edu-item">
+            <div class="edu-school">University of Sydney</div>
+            <div class="edu-meta">PhD in Mathematics | Oct 2022 – Feb 2026 (Expected)</div>
+        </div>
+        <div class="edu-item">
+            <div class="edu-school">HSE University (Moscow)</div>
+            <div class="edu-meta">Master in Mathematics | 2019 – 2022</div>
+        </div>
+        <div class="edu-item">
+            <div class="edu-school">Texas A&M University (USA)</div>
+            <div class="edu-meta">Exchange Student | Sep 2018 – May 2019</div>
+        </div>
+        <div class="edu-item">
+            <div class="edu-school">Beihang University (Beijing)</div>
+            <div class="edu-meta">Bachelor in Mathematics | 2015 – 2019</div>
+        </div>
     </main>
-
 </body>
 </html>
