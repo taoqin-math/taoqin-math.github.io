@@ -52,6 +52,62 @@
             and the associated <strong>combinatorics</strong>.
         </p>
 
+        <style>
+            /* 隐藏容器的初始状态：高度为0，透明，超出隐藏 */
+            .edu-hidden-wrapper {
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: max-height 0.6s ease-out, opacity 0.6s ease-out;
+            }
+        
+            /* 展开状态：给予足够的高度和完全不透明 */
+            .edu-hidden-wrapper.open {
+                max-height: 1000px; /* 设置一个足够大的值以容纳内容 */
+                opacity: 1;
+            }
+        
+            /* 按钮样式设计 */
+            .fun-toggle-btn {
+                background-color: #f8f9fa; /* 浅灰背景 */
+                border: 1px solid #ddd;
+                color: #555;
+                padding: 10px 24px;
+                border-radius: 50px; /* 胶囊形状 */
+                font-size: 0.9rem;
+                cursor: pointer;
+                outline: none;
+                transition: all 0.3s ease;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px; /* 文字和图标的间距 */
+                margin-top: 20px;
+                font-weight: 500;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            }
+        
+            /* 鼠标悬停时的按钮效果 */
+            .fun-toggle-btn:hover {
+                background-color: #fff;
+                color: #007bff; /* 悬停变蓝 */
+                border-color: #007bff;
+                box-shadow: 0 4px 8px rgba(0,123,255,0.15); /* 蓝色柔光阴影 */
+                transform: translateY(-1px); /* 轻微上浮 */
+            }
+        
+            /* 箭头图标的初始状态 */
+            .arrow-icon {
+                display: inline-block;
+                transition: transform 0.4s ease;
+                font-size: 0.8rem;
+            }
+        
+            /* 箭头旋转状态 */
+            .arrow-icon.rotate {
+                transform: rotate(180deg);
+            }
+        </style>
+        
         <h3 style="font-size: 1.5rem; color: #444; margin-top: 50px; margin-bottom: 25px;">Education</h3>
         
         <div class="edu-item">
@@ -59,24 +115,55 @@
             <div class="edu-meta">PhD in Mathematics | Feb 2026 (Expected)</div>
             <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">Mentors: Andrew Mathas & Dani Tubbenhauer</div>
         </div>
-
-        <div class="edu-item">
-            <div class="edu-school">HSE University (Moscow)</div>
-            <div class="edu-meta">Master in Mathematics | 2022</div>
-            <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">Mentor: Marat Rovinsky</div>
+        
+        <div id="hidden-education" class="edu-hidden-wrapper">
+            
+            <div class="edu-item" style="margin-top: 25px;">
+                <div class="edu-school">HSE University (Moscow)</div>
+                <div class="edu-meta">Master in Mathematics | 2022</div>
+                <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">Mentor: Marat Rovinsky</div>
+            </div>
+        
+            <div class="edu-item" style="margin-top: 25px;">
+                <div class="edu-school">Texas A&M University (College Station)</div>
+                <div class="edu-meta">Exchange Student | 2018 – 2019</div>
+                <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">Mentor: Matt Papanikolas</div>
+            </div>
+        
+            <div class="edu-item" style="margin-top: 25px;">
+                <div class="edu-school">Beihang University (Beijing)</div>
+                <div class="edu-meta">Bachelor in Mathematics | 2019</div>
+                <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">Mentor: Sheng-Ming Ma</div>
+            </div>
+            
         </div>
-
-        <div class="edu-item">
-            <div class="edu-school">Texas A&M University (College Station)</div>
-            <div class="edu-meta">Exchange Student | 2018 – 2019</div>
-            <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">Mentor: Matt Papanikolas</div>
+        
+        <div style="text-align: center;"> <button onclick="toggleFunEducation()" id="fun-btn" class="fun-toggle-btn">
+                <span id="btn-text">Show Previous Education</span>
+                <span id="btn-arrow" class="arrow-icon">▼</span>
+            </button>
         </div>
-
-        <div class="edu-item">
-            <div class="edu-school">Beihang University (Beijing)</div>
-            <div class="edu-meta">Bachelor in Mathematics | 2019</div>
-            <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">Mentor: Sheng-Ming Ma</div>
-        </div>
+        
+        <script>
+            function toggleFunEducation() {
+                var wrapper = document.getElementById("hidden-education");
+                var btnText = document.getElementById("btn-text");
+                var arrow = document.getElementById("btn-arrow");
+                
+                // 切换 open 类，触发 CSS 动画
+                wrapper.classList.toggle("open");
+                
+                // 切换箭头旋转
+                arrow.classList.toggle("rotate");
+        
+                // 延迟一点改变文字，让交互更自然
+                if (wrapper.classList.contains("open")) {
+                    btnText.innerText = "Show Less";
+                } else {
+                    btnText.innerText = "Show Previous Education";
+                }
+            }
+        </script>
         <h3 style="font-size: 1.5rem; color: #444; margin-top: 50px; margin-bottom: 25px;">Links</h3>
         <p style="color: #666; margin-bottom: 15px;">Here are some of my colleagues and collaborators:</p>
         
