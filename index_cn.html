@@ -5,6 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>秦涛 | 个人主页</title>
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* --- 教育背景折叠动画样式 --- */
+        .edu-hidden-wrapper {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-out, opacity 0.6s ease-out;
+        }
+        .edu-hidden-wrapper.open {
+            max-height: 1000px; /* 足够的高度以容纳内容 */
+            opacity: 1;
+        }
+
+        /* --- 胶囊按钮样式 --- */
+        .fun-toggle-btn {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            color: #555;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .fun-toggle-btn:hover {
+            background-color: #fff;
+            color: #007bff;
+            border-color: #007bff;
+            box-shadow: 0 4px 8px rgba(0,123,255,0.15);
+            transform: translateY(-1px);
+        }
+
+        /* --- 箭头旋转样式 --- */
+        .arrow-icon {
+            display: inline-block;
+            transition: transform 0.4s ease;
+            font-size: 0.8rem;
+        }
+        .arrow-icon.rotate {
+            transform: rotate(180deg);
+        }
+
+        /* --- 链接部分行内布局样式 --- */
+        .links-container {
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 15px; /* 间距 */
+            align-items: center; 
+            font-size: 1.05rem;
+        }
+        .link-separator {
+            color: #ccc;
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
 <body>
     <aside class="sidebar">
@@ -53,40 +116,72 @@
             <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">导师：Andrew Mathas & Dani Tubbenhauer</div>
         </div>
 
-        <div class="edu-item">
-            <div class="edu-school">高等经济大学 (HSE University, Moscow)</div>
-            <div class="edu-meta">数学硕士 | 2022</div>
-            <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">导师：Marat Rovinsky</div>
+        <div id="hidden-education" class="edu-hidden-wrapper">
+            <div class="edu-item" style="margin-top: 25px;">
+                <div class="edu-school">高等经济大学 (HSE University, Moscow)</div>
+                <div class="edu-meta">数学硕士 | 2022</div>
+                <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">导师：Marat Rovinsky</div>
+            </div>
+
+            <div class="edu-item" style="margin-top: 25px;">
+                <div class="edu-school">德州农机大学 (Texas A&M University)</div>
+                <div class="edu-meta">交换生 | 2018 – 2019</div>
+                <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">导师：Matt Papanikolas</div>
+            </div>
+
+            <div class="edu-item" style="margin-top: 25px;">
+                <div class="edu-school">北京航空航天大学</div>
+                <div class="edu-meta">数学学士 | 2019</div>
+                <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">导师：Sheng-Ming Ma</div>
+            </div>
         </div>
 
-        <div class="edu-item">
-            <div class="edu-school">德州农机大学 (Texas A&M University)</div>
-            <div class="edu-meta">交换生 | 2018 – 2019</div>
-            <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">导师：Matt Papanikolas</div>
+        <div style="text-align: center;">
+            <button onclick="toggleFunEducation()" id="fun-btn" class="fun-toggle-btn">
+                <span id="btn-text">显示更多学历</span>
+                <span id="btn-arrow" class="arrow-icon">▼</span>
+            </button>
         </div>
 
-        <div class="edu-item">
-            <div class="edu-school">北京航空航天大学</div>
-            <div class="edu-meta">数学学士 | 2019</div>
-            <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">导师：Sheng-Ming Ma</div>
-        </div>
-         <h3 style="font-size: 1.5rem; color: #444; margin-top: 50px; margin-bottom: 25px;">Links</h3>
+        <h3 style="font-size: 1.5rem; color: #444; margin-top: 50px; margin-bottom: 25px;">Links</h3>
         <p style="color: #666; margin-bottom: 15px;">Here are some of my colleagues and collaborators:</p>
         
-        <ul style="list-style: none; padding: 0; font-size: 1.05rem;">
-            <li style="margin-bottom: 10px;">
-                <a href="https://sites.google.com/view/finn-klein" target="_blank" style="font-weight: 500;">芬 克莱因</a>
-            </li>
-            <li style="margin-bottom: 10px;">
-                <a href="https://baileywhitbread.com" target="_blank" style="font-weight: 500;">Bailey Whitbread</a>
-            </li>
-            <li style="margin-bottom: 10px;">
-                <a href="https://tomgoertzen.github.io" target="_blank" style="font-weight: 500;">Tom Goertzen</a>
-            </li>
-            <li style="margin-bottom: 10px;">
-                <a href="https://www.maths.usyd.edu.au/u/damianl/" target="_blank" style="font-weight: 500;">连玉文</a>
-            </li>
-        </ul>
+        <div class="links-container">
+            <a href="https://sites.google.com/view/finn-klein" target="_blank" style="font-weight: 500; color: #007bff; text-decoration: none;">芬 克莱因</a>
+            
+            <span class="link-separator">•</span>
+            
+            <a href="https://baileywhitbread.com" target="_blank" style="font-weight: 500; color: #007bff; text-decoration: none;">Bailey Whitbread</a>
+            
+            <span class="link-separator">•</span>
+            
+            <a href="https://tomgoertzen.github.io" target="_blank" style="font-weight: 500; color: #007bff; text-decoration: none;">Tom Goertzen</a>
+            
+            <span class="link-separator">•</span>
+            
+            <a href="https://www.maths.usyd.edu.au/u/damianl/" target="_blank" style="font-weight: 500; color: #007bff; text-decoration: none;">连玉文</a>
+        </div>
     </main>
+
+    <script>
+        function toggleFunEducation() {
+            var wrapper = document.getElementById("hidden-education");
+            var btnText = document.getElementById("btn-text");
+            var arrow = document.getElementById("btn-arrow");
+            
+            // 切换 open 类，触发 CSS 动画
+            wrapper.classList.toggle("open");
+            
+            // 切换箭头旋转
+            arrow.classList.toggle("rotate");
+
+            // 更改文字 (根据页面语言调整为中文)
+            if (wrapper.classList.contains("open")) {
+                btnText.innerText = "收起";
+            } else {
+                btnText.innerText = "显示更多学历";
+            }
+        }
+    </script>
 </body>
 </html>
