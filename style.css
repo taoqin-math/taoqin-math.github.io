@@ -207,3 +207,19 @@ ul.modern-list li::before {
 .profile-avatar:hover {
     transform: rotate(5deg) scale(1.05); /* 鼠标放上去会微微旋转放大，增加趣味性 */
 }
+.sydney-icon-wrap {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  border-radius: 50%;      /* 变成小圆形 */
+  overflow: hidden;        /* 超出圆形的部分不显示 */
+  vertical-align: -3px;    /* 和文字对齐，数值按效果微调 */
+}
+
+.sydney-icon-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* 填满小圆形 */
+  display: block;
+}
+
