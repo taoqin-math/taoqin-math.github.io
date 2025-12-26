@@ -43,161 +43,67 @@
         <h2 class="section-title">About Me</h2>
         <p>
             I am a PhD student in Mathematics at the University of Sydney, working under the supervision of 
-            <a href="https://www.maths.usyd.edu.au/u/mathas/" target="_blank"><strong>Andrew Mathas</strong></a> 
+            <a href="https://www.maths.usyd.edu.au/u/mathas/" target="_blank">Andrew Mathas</a> 
             and 
-            <a href="https://www.dtubbenhauer.com" target="_blank"><strong>Dani Tubbenhauer</strong></a>. 
+            <a href="https://www.dtubbenhauer.com" target="_blank">Dani Tubbenhauer</a>.
         </p>
         <p>
-            My research interests broadly lie in <strong>representation theory</strong>, <strong>algebraic combinatorics</strong>, 
+            My research interests broadly lie in representation theory, algebraic combinatorics, 
             and related topics.
         </p>
         <p>
-            Specifically, I am interested in <strong>KLR (quiver Hecke) algebras</strong>, <strong>Hecke algebras</strong>, 
-            and the associated <strong>combinatorics</strong>.
+            Specifically, I am interested in KLR (quiver Hecke) algebras, Hecke algebras, 
+            and the associated combinatorics.
         </p>
-
-        <style>
-            /* 隐藏容器的初始状态：高度为0，透明，超出隐藏 */
-            .edu-hidden-wrapper {
-                max-height: 0;
-                opacity: 0;
-                overflow: hidden;
-                transition: max-height 0.6s ease-out, opacity 0.6s ease-out;
-            }
         
-            /* 展开状态：给予足够的高度和完全不透明 */
-            .edu-hidden-wrapper.open {
-                max-height: 1000px; /* 设置一个足够大的值以容纳内容 */
-                opacity: 1;
-            }
+        <h3 class="subsection-title" style="margin-top: 40px; margin-bottom: 20px;">Education</h3>
         
-            /* 按钮样式设计 */
-            .fun-toggle-btn {
-                background-color: #f8f9fa; /* 浅灰背景 */
-                border: 1px solid #ddd;
-                color: #555;
-                padding: 10px 24px;
-                border-radius: 50px; /* 胶囊形状 */
-                font-size: 0.9rem;
-                cursor: pointer;
-                outline: none;
-                transition: all 0.3s ease;
-                display: inline-flex;
-                align-items: center;
-                gap: 8px; /* 文字和图标的间距 */
-                margin-top: 20px;
-                font-weight: 500;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            }
-        
-            /* 鼠标悬停时的按钮效果 */
-            .fun-toggle-btn:hover {
-                background-color: #fff;
-                color: #007bff; /* 悬停变蓝 */
-                border-color: #007bff;
-                box-shadow: 0 4px 8px rgba(0,123,255,0.15); /* 蓝色柔光阴影 */
-                transform: translateY(-1px); /* 轻微上浮 */
-            }
-        
-            /* 箭头图标的初始状态 */
-            .arrow-icon {
-                display: inline-block;
-                transition: transform 0.4s ease;
-                font-size: 0.8rem;
-            }
-        
-            /* 箭头旋转状态 */
-            .arrow-icon.rotate {
-                transform: rotate(180deg);
-            }
-        </style>
-        
-        <h3 style="font-size: 1.5rem; color: #444; margin-top: 50px; margin-bottom: 25px;">Education</h3>
-        
-          <div class="edu-item">
-                <div class="edu-school">
-                    University of Sydney 
-                    <span style="margin-left: 5px;">
-                        (
-                        <span class="sydney-icon-wrap">
-                            <img src="sydney-icon.png" alt="icon" style="height: 4em; vertical-align: -20px; -webkit-clip-path: circle(25% at 50% 50%); clip-path: circle(25% at 50% 50%);">
-                        </span>
-                        )
-                    </span>
-                </div>
+        <div class="education-list">
+            <div class="edu-item" style="margin-bottom: 25px;">
+                <div class="edu-school"><strong>University of Sydney</strong></div>
                 <div class="edu-meta">PhD in Mathematics | 2026 (Expected)</div>
-                <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">
+                <div style="color: #666; font-size: 0.95rem;">
                     Mentors: Andrew Mathas & Dani Tubbenhauer
                 </div>
-        </div>
-    
-        
-        <div id="hidden-education" class="edu-hidden-wrapper">
-            
-            <div class="edu-item" style="margin-top: 25px;">
-                <div class="edu-school">HSE University (Moscow)</div>
+            </div>
+
+            <div class="edu-item" style="margin-bottom: 25px;">
+                <div class="edu-school"><strong>HSE University (Moscow)</strong></div>
                 <div class="edu-meta">Master in Mathematics | 2022</div>
-                <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">Mentor: Marat Rovinsky</div>
+                <div style="color: #666; font-size: 0.95rem;">Mentor: Marat Rovinsky</div>
             </div>
         
-            <div class="edu-item" style="margin-top: 25px;">
-                <div class="edu-school">Texas A&M University (College Station)</div>
+            <div class="edu-item" style="margin-bottom: 25px;">
+                <div class="edu-school"><strong>Texas A&M University (College Station)</strong></div>
                 <div class="edu-meta">Exchange Student | 2018 – 2019</div>
-                <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">Mentor: Matt Papanikolas</div>
+                <div style="color: #666; font-size: 0.95rem;">Mentor: Matt Papanikolas</div>
             </div>
         
-            <div class="edu-item" style="margin-top: 25px;">
-                <div class="edu-school">Beihang University (Beijing)</div>
+            <div class="edu-item" style="margin-bottom: 25px;">
+                <div class="edu-school"><strong>Beihang University (Beijing)</strong></div>
                 <div class="edu-meta">Bachelor in Mathematics | 2019</div>
-                <div style="color: #666; font-size: 0.95rem; margin-top: 5px;">Mentor: Sheng-Ming Ma</div>
+                <div style="color: #666; font-size: 0.95rem;">Mentor: Sheng-Ming Ma</div>
             </div>
-            
         </div>
         
-        <div style="text-align: center;"> <button onclick="toggleFunEducation()" id="fun-btn" class="fun-toggle-btn">
-                <span id="btn-text">Show Previous Education</span>
-                <span id="btn-arrow" class="arrow-icon">▼</span>
-            </button>
-        </div>
-        
-        <script>
-            function toggleFunEducation() {
-                var wrapper = document.getElementById("hidden-education");
-                var btnText = document.getElementById("btn-text");
-                var arrow = document.getElementById("btn-arrow");
-                
-                // 切换 open 类，触发 CSS 动画
-                wrapper.classList.toggle("open");
-                
-                // 切换箭头旋转
-                arrow.classList.toggle("rotate");
-        
-                // 延迟一点改变文字，让交互更自然
-                if (wrapper.classList.contains("open")) {
-                    btnText.innerText = "Show Less";
-                } else {
-                    btnText.innerText = "Show Previous Education";
-                }
-            }
-        </script>
-        <h3 style="font-size: 1.5rem; color: #444; margin-top: 50px; margin-bottom: 25px;">Links</h3>
-<p style="color: #666; margin-bottom: 15px;">Here are some of my colleagues and collaborators:</p>
+        <h3 class="subsection-title" style="margin-top: 40px; margin-bottom: 20px;">Links</h3>
+        <p style="color: #666; margin-bottom: 10px;">Here are some of my colleagues and collaborators:</p>
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; font-size: 1.05rem;">
-    
-    <a href="https://sites.google.com/view/finn-klein" target="_blank" style="text-decoration: none; color: #007bff; font-weight: 500;">Finn Klein</a>
-    
-    <span style="color: #ccc;">•</span> <a href="https://baileywhitbread.com" target="_blank" style="text-decoration: none; color: #007bff; font-weight: 500;">Bailey Whitbread</a>
-    
-    <span style="color: #ccc;">•</span>
+        <ul class="colleague-list" style="list-style-type: none; padding: 0;">
+            <li style="margin-bottom: 8px;">
+                <a href="https://sites.google.com/view/finn-klein" target="_blank">Finn Klein</a>
+            </li>
+            <li style="margin-bottom: 8px;">
+                <a href="https://baileywhitbread.com" target="_blank">Bailey Whitbread</a>
+            </li>
+            <li style="margin-bottom: 8px;">
+                <a href="https://tomgoertzen.github.io" target="_blank">Tom Goertzen</a>
+            </li>
+            <li style="margin-bottom: 8px;">
+                <a href="https://www.maths.usyd.edu.au/u/damianl/" target="_blank">Damian Lin</a>
+            </li>
+        </ul>
 
-    <a href="https://tomgoertzen.github.io" target="_blank" style="text-decoration: none; color: #007bff; font-weight: 500;">Tom Goertzen</a>
-    
-    <span style="color: #ccc;">•</span>
-
-    <a href="https://www.maths.usyd.edu.au/u/damianl/" target="_blank" style="text-decoration: none; color: #007bff; font-weight: 500;">Damian Lin</a>
-
-</div>
     </main>
 </body>
 </html>
