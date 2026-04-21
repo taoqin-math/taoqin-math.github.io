@@ -1,0 +1,211 @@
+/* style.css */
+
+:root {
+    --primary: #2c3e50;       /* 深色主调 */
+    --accent: #3498db;        /* 亮蓝强调色 */
+    --bg-sidebar: #f8f9fa;    /* 侧边栏背景 */
+    --bg-content: #ffffff;    /* 内容背景 */
+    --text-main: #222;        /* 正文颜色（加深） */
+    --text-light: #555;       /* 辅助文字颜色 */
+    --border-color: #e9ecef;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    /* 基础字体调大到 18px (1.125rem)，行高增加 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-main);
+    display: flex;
+    min-height: 100vh;
+    font-size: 1.125rem; 
+    line-height: 1.7; 
+}
+
+a { text-decoration: none; color: var(--accent); transition: color 0.2s; }
+a:hover { color: #1d6fa5; text-decoration: underline; }
+
+/* --- 侧边栏 --- */
+.sidebar {
+    width: 300px; /* 稍微加宽 */
+    background-color: var(--bg-sidebar);
+    padding: 50px 35px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name {
+    font-size: 2.2rem; /* 名字加大 */
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.profile-role {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.contact-info {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 50px;
+    line-height: 1.8;
+}
+.contact-info .email { display: block; font-family: monospace; }
+
+/* 导航菜单 */
+.nav-links { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+.nav-links li { margin-bottom: 18px; }
+.nav-links a {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1.25rem; /* 菜单字体加大 */
+    display: block;
+    padding: 5px 0;
+}
+.nav-links a:hover { color: var(--accent); padding-left: 8px; text-decoration: none; }
+.nav-links a.active { color: var(--accent); border-right: 3px solid var(--accent); } /* 当前页面高亮 */
+
+/* --- 右侧内容 --- */
+.main-content {
+    flex: 1;
+    margin-left: 300px;
+    padding: 80px 100px; /* 增加内边距，更有呼吸感 */
+    background-color: var(--bg-content);
+    max-width: 1200px; /* 防止在大屏幕上太宽 */
+}
+
+.section-title {
+    font-size: 2.2rem; /* 标题加大 */
+    color: var(--primary);
+    border-bottom: 3px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+/* --- 组件样式 --- */
+.edu-item {
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 4px solid var(--border-color);
+}
+.edu-school { font-weight: 700; font-size: 1.3rem; color: var(--primary); }
+.edu-meta { color: var(--text-light); font-size: 1.05rem; margin-top: 5px; }
+
+.paper-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+.paper-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    transition: transform 0.2s;
+}
+.paper-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.paper-title { font-weight: 700; font-size: 1.3rem; margin-bottom: 10px; color: var(--primary); line-height: 1.4; }
+.paper-authors { font-style: italic; color: #666; font-size: 1.05rem; margin-bottom: 12px; }
+.paper-status {
+    display: inline-block; padding: 4px 10px; border-radius: 5px;
+    font-size: 0.9rem; font-weight: 600; background-color: #f0f0f0; color: #555;
+}
+.status-arxiv { background-color: #e3f2fd; color: #1565c0; }
+.status-prep { background-color: #fff3e0; color: #e65100; }
+
+/* 列表样式 */
+ul.modern-list { list-style: none; padding: 0; }
+ul.modern-list li { margin-bottom: 25px; position: relative; padding-left: 30px; }
+ul.modern-list li::before {
+    content: "•"; color: var(--accent); font-weight: bold;
+    font-size: 1.5em; position: absolute; left: 0; top: -5px;
+}
+.list-header { font-weight: 700; color: var(--primary); font-size: 1.15rem; }
+.list-details { font-size: 1.05rem; color: var(--text-light); display: block; margin-top: 4px; }
+.list-date { font-size: 0.95rem; color: #999; font-weight: normal; margin-left: 8px; }
+
+/* 表格样式 */
+.teaching-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 1.1rem; }
+.teaching-table th, .teaching-table td { text-align: left; padding: 18px 20px; border-bottom: 1px solid #eee; }
+.teaching-table th { color: var(--primary); font-weight: 700; border-bottom: 2px solid #ccc; }
+
+/* 移动端适配 */
+@media (max-width: 900px) {
+    body { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; position: relative; padding: 40px 20px; border-right: none; border-bottom: 1px solid var(--border-color); }
+    .main-content { margin-left: 0; padding: 40px 20px; }
+    .nav-links a.active { border-right: none; color: var(--accent); text-decoration: underline; }
+}
+/* --- Language Toggle Button --- */
+.lang-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 15px;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.lang-btn:hover {
+    background-color: var(--primary);
+    color: #fff;
+    text-decoration: none;
+}
+/* --- 神秘气泡按钮 (Mystery Bubble) --- */
+.mystery-bubble {
+    display: block;             /* 独占一行 */
+    margin-top: 15px;           /* 与上方菜单的距离 */
+    padding: 8px 15px;
+    border-radius: 25px;        /* 圆润的气泡形状 */
+    background-color: #f0f2f5;  /* 默认浅灰背景 */
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    
+    /* --- 核心模糊特效 --- */
+    filter: blur(4px);          /* 默认模糊 4px，看不清字 */
+    opacity: 0.4;               /* 默认半透明，很低调 */
+    transform: scale(0.95);     /* 稍微缩小 */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* 平滑过渡动画 */
+}
+
+/* 鼠标悬停时的状态 */
+.mystery-bubble:hover {
+    filter: blur(0);            /* 清除模糊，变清晰 */
+    opacity: 1;                 /* 完全不透明 */
+    transform: scale(1.05);     /* 微微放大，有弹性感 */
+    background-color: var(--accent); /* 变成主题蓝色 */
+    color: white;               /* 文字变白 */
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3); /* 添加光晕 */
+}
+/* --- 侧边栏头像样式 --- */
+.profile-avatar {
+    width: 160px;            /* 头像大小 */
+    height: 160px;
+    border-radius: 50%;      /* 50% 就是正圆形 */
+    object-fit: cover;       /* 保证图片不被拉伸变形 */
+    border: 4px solid #fff;  /* 一圈白边，看起来更有质感 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* 轻微的投影 */
+    margin: 0 auto 20px auto; /* 上左右下边距，auto保证居中 */
+    display: block;           /* 让它独占一行，方便居中 */
+    transition: transform 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: rotate(5deg) scale(1.05); /* 鼠标放上去会微微旋转放大，增加趣味性 */
+}
+
+
