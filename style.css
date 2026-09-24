@@ -177,7 +177,7 @@ ul.modern-list li::before {
     
     /* --- 核心模糊特效 --- */
     filter: blur(4px);          /* 默认模糊 4px，看不清字 */
-    opacity: 0.4;               /* 完全不透明，很低调 */
+    opacity: 0.4;               /* 默认半透明，很低调 */
     transform: scale(0.95);     /* 稍微缩小 */
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* 平滑过渡动画 */
 }
