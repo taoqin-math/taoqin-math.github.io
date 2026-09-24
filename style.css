@@ -177,7 +177,7 @@ ul.modern-list li::before {
     
     /* --- 核心模糊特效 --- */
     filter: blur(4px);          /* 默认模糊 4px，看不清字 */
-    opacity: 0.4;               /* 默认半透明，很低调 */
+    opacity: 0.4;               /* 完全不透明，很低调 */
     transform: scale(0.95);     /* 稍微缩小 */
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* 平滑过渡动画 */
 }
@@ -193,8 +193,8 @@ ul.modern-list li::before {
 }
 /* --- 侧边栏头像样式 --- */
 .profile-avatar {
-    width: 160px;            /* 头像大小 */
-    height: 160px;
+    width: 120px;            /* 头像大小 */
+    height: 120px;
     border-radius: 50%;      /* 50% 就是正圆形 */
     object-fit: cover;       /* 保证图片不被拉伸变形 */
     border: 4px solid #fff;  /* 一圈白边，看起来更有质感 */
@@ -209,3 +209,103 @@ ul.modern-list li::before {
 }
 
 
+/* --- Research page: restrained publication list --- */
+/* Scope these rules to the existing research markup. The few !important
+   declarations override inline presentation without changing the HTML. */
+.research-profiles {
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px 24px !important;
+}
+
+.research-profiles .paper-status {
+    padding: 0 !important;
+    border-radius: 0;
+    background: transparent;
+    color: #1d6fa5;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.research-profiles .paper-status span {
+    filter: grayscale(1);
+}
+
+.research-profiles + .paper-grid {
+    display: block;
+}
+
+.research-profiles + .paper-grid .paper-card {
+    padding: 24px 0;
+    border: 0;
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+    transition: none;
+}
+
+.research-profiles + .paper-grid .paper-card:first-child {
+    padding-top: 0;
+}
+
+.research-profiles + .paper-grid .paper-card:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.research-profiles + .paper-grid .paper-title {
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+    line-height: 1.5;
+}
+
+.research-profiles + .paper-grid .paper-card > div:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 18px;
+}
+
+.research-profiles + .paper-grid .paper-status {
+    margin-left: 0 !important;
+    padding: 0;
+    border: 0 !important;
+    border-radius: 0;
+    background: transparent !important;
+    color: var(--text-light) !important;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.research-profiles + .paper-grid a.paper-status {
+    color: #1d6fa5 !important;
+}
+
+.research-profiles a.paper-status,
+.research-profiles + .paper-grid a.paper-status {
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px !important;
+    text-underline-offset: 3px;
+}
+
+.research-profiles a.paper-status:hover,
+.research-profiles + .paper-grid a.paper-status:hover {
+    color: var(--primary) !important;
+}
+
+.research-profiles a:focus-visible,
+.research-profiles + .paper-grid a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.research-profiles ~ h3 {
+    color: var(--primary) !important;
+}
+
+.research-profiles ~ .modern-list .list-date {
+    color: var(--text-light);
+}
