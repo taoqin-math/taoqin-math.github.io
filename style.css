@@ -131,12 +131,64 @@ ul.modern-list li::before {
 }
 .list-header { font-weight: 700; color: var(--primary); font-size: 1.15rem; }
 .list-details { font-size: 1.05rem; color: var(--text-light); display: block; margin-top: 4px; }
-.list-date { font-size: 0.95rem; color: #999; font-weight: normal; margin-left: 8px; }
+.list-date { font-size: 0.95rem; color: var(--text-light); font-weight: normal; margin-left: 8px; }
 
-/* 表格样式 */
-.teaching-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 1.1rem; }
-.teaching-table th, .teaching-table td { text-align: left; padding: 18px 20px; border-bottom: 1px solid #eee; }
-.teaching-table th { color: var(--primary); font-weight: 700; border-bottom: 2px solid #ccc; }
+/* Unified content-link treatment for research/talk lists. */
+.modern-list .list-details a {
+    color: #1d6fa5;
+    text-decoration: none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+.modern-list .list-details a:hover,
+.modern-list .list-details a:focus-visible {
+    color: var(--primary);
+    text-decoration: underline;
+}
+.modern-list .list-details a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* Teaching: restrained academic table styling. */
+.teaching-subtitle {
+    color: var(--primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+.teaching-subtitle + .teaching-table + .teaching-subtitle {
+    margin-top: 60px;
+}
+.teaching-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 10px;
+    font-size: 1.05rem;
+}
+.teaching-table th,
+.teaching-table td {
+    text-align: left;
+    vertical-align: top;
+    padding: 14px 16px 14px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.teaching-table th:last-child,
+.teaching-table td:last-child {
+    padding-right: 0;
+}
+.teaching-table th {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-bottom: 1px solid #cfd6dc;
+}
+.teaching-table td strong {
+    color: var(--primary);
+    font-weight: 700;
+}
 
 /* 移动端适配 */
 @media (max-width: 900px) {
@@ -144,6 +196,9 @@ ul.modern-list li::before {
     .sidebar { width: 100%; height: auto; position: relative; padding: 40px 20px; border-right: none; border-bottom: 1px solid var(--border-color); }
     .main-content { margin-left: 0; padding: 40px 20px; }
     .nav-links a.active { border-right: none; color: var(--accent); text-decoration: underline; }
+    .teaching-table { font-size: 0.95rem; }
+    .teaching-table th, .teaching-table td { padding: 11px 8px 11px 0; }
+    .teaching-table th { font-size: 0.9rem; }
 }
 /* --- Language Toggle Button --- */
 .lang-btn {
