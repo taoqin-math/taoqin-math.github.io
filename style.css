@@ -200,6 +200,56 @@ ul.modern-list li::before {
     .teaching-table th, .teaching-table td { padding: 11px 8px 11px 0; }
     .teaching-table th { font-size: 0.9rem; }
 }
+
+@media (max-width: 600px) {
+    .teaching-subtitle {
+        font-size: 1.2rem;
+        line-height: 1.4;
+    }
+
+    .teaching-table,
+    .teaching-table tbody,
+    .teaching-table tr {
+        display: block;
+        width: 100%;
+    }
+
+    .teaching-table thead {
+        display: none;
+    }
+
+    .teaching-table tr {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .teaching-table td {
+        display: grid;
+        grid-template-columns: 72px minmax(0, 1fr);
+        column-gap: 12px;
+        width: 100%;
+        padding: 2px 0;
+        border-bottom: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .teaching-table td::before {
+        content: attr(data-label);
+        color: var(--text-light);
+        font-size: 0.82rem;
+        font-weight: 600;
+    }
+
+    .teaching-table td:first-child {
+        display: block;
+        padding-bottom: 7px;
+    }
+
+    .teaching-table td:first-child::before {
+        content: none;
+    }
+}
+
 /* --- Language Toggle Button --- */
 .lang-btn {
     display: inline-block;
