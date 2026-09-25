@@ -296,20 +296,6 @@ ul.modern-list li::before {
     text-underline-offset: 3px;
 }
 
-/* Theses already has literal brackets in the HTML. Add matching decorative
-   brackets only to the profile and publication links, never to status text. */
-.research-profiles a::before,
-.research-profiles + .paper-grid a::before {
-    content: "[";
-    color: var(--text-light);
-}
-
-.research-profiles a::after,
-.research-profiles + .paper-grid a::after {
-    content: "]";
-    color: var(--text-light);
-}
-
 .research-profiles a:hover,
 .research-profiles + .paper-grid a:hover,
 .research-profiles ~ .modern-list a:hover,
