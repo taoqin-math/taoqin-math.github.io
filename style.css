@@ -210,8 +210,8 @@ ul.modern-list li::before {
 
 
 /* --- Research page: restrained publication list --- */
-/* Scope these rules to the existing research markup. The few !important
-   declarations override inline presentation without changing the HTML. */
+/* Keep these rules scoped to Research. !important only overrides existing
+   inline presentation and status colours; all HTML content stays unchanged. */
 .research-profiles {
     flex-wrap: wrap;
     align-items: baseline;
@@ -222,9 +222,8 @@ ul.modern-list li::before {
     padding: 0 !important;
     border-radius: 0;
     background: transparent;
-    color: #1d6fa5;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .research-profiles .paper-status span {
@@ -236,9 +235,10 @@ ul.modern-list li::before {
 }
 
 .research-profiles + .paper-grid .paper-card {
-    padding: 24px 0;
+    position: relative;
+    margin: 0 0 25px;
+    padding: 0 0 0 30px;
     border: 0;
-    border-bottom: 1px solid var(--border-color);
     border-radius: 0;
     background: transparent;
     box-shadow: none;
@@ -246,19 +246,25 @@ ul.modern-list li::before {
     transition: none;
 }
 
-.research-profiles + .paper-grid .paper-card:first-child {
-    padding-top: 0;
+/* Match the marker and indentation used by .modern-list in Theses and Talks. */
+.research-profiles + .paper-grid .paper-card::before {
+    content: "•";
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.5em;
+    position: absolute;
+    left: 0;
+    top: -5px;
 }
 
 .research-profiles + .paper-grid .paper-card:last-child {
-    padding-bottom: 0;
-    border-bottom: 0;
+    margin-bottom: 0;
 }
 
 .research-profiles + .paper-grid .paper-title {
     margin-bottom: 8px;
     font-size: 1.15rem;
-    line-height: 1.5;
+    line-height: 1.7;
 }
 
 .research-profiles + .paper-grid .paper-card > div:last-child {
@@ -280,24 +286,43 @@ ul.modern-list li::before {
     line-height: 1.6;
 }
 
-.research-profiles + .paper-grid a.paper-status {
+/* One link treatment across profiles, publications, and theses. */
+.research-profiles a,
+.research-profiles + .paper-grid .paper-card a,
+.research-profiles ~ .modern-list a {
     color: #1d6fa5 !important;
-}
-
-.research-profiles a.paper-status,
-.research-profiles + .paper-grid a.paper-status {
-    text-decoration: underline !important;
-    text-decoration-thickness: 1px !important;
+    text-decoration: none !important;
+    text-decoration-thickness: 1px;
     text-underline-offset: 3px;
 }
 
-.research-profiles a.paper-status:hover,
-.research-profiles + .paper-grid a.paper-status:hover {
+/* Theses already has literal brackets in the HTML. Add matching decorative
+   brackets only to the profile and publication links, never to status text. */
+.research-profiles a::before,
+.research-profiles + .paper-grid a::before {
+    content: "[";
+    color: var(--text-light);
+}
+
+.research-profiles a::after,
+.research-profiles + .paper-grid a::after {
+    content: "]";
+    color: var(--text-light);
+}
+
+.research-profiles a:hover,
+.research-profiles + .paper-grid a:hover,
+.research-profiles ~ .modern-list a:hover,
+.research-profiles a:focus-visible,
+.research-profiles + .paper-grid a:focus-visible,
+.research-profiles ~ .modern-list a:focus-visible {
     color: var(--primary) !important;
+    text-decoration: underline !important;
 }
 
 .research-profiles a:focus-visible,
-.research-profiles + .paper-grid a:focus-visible {
+.research-profiles + .paper-grid a:focus-visible,
+.research-profiles ~ .modern-list a:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 4px;
 }
