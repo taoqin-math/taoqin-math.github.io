@@ -40,11 +40,20 @@ a:hover { color: #1d6fa5; text-decoration: underline; }
     flex-direction: column;
 }
 
+.profile-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 10px;
+}
+
 .profile-name {
+    flex: 1;
     font-size: 2.2rem; /* 名字加大 */
     font-weight: 800;
     color: var(--primary);
-    margin-bottom: 10px;
+    margin-bottom: 0;
     line-height: 1.1;
 }
 
@@ -203,10 +212,14 @@ ul.modern-list li::before {
         border-bottom: 1px solid var(--border-color);
     }
     .sidebar .profile-avatar { display: none; }
+    .sidebar .profile-heading {
+        display: block;
+        margin-bottom: 6px;
+    }
     .sidebar .profile-name {
         font-size: 1.8rem;
         line-height: 1.2;
-        margin-bottom: 6px;
+        margin-bottom: 0;
     }
     .sidebar .contact-info {
         font-size: 0.85rem;
@@ -346,15 +359,16 @@ ul.modern-list li::before {
     color: white;               /* 文字变白 */
     box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3); /* 添加光晕 */
 }
-/* --- 侧边栏头像样式 --- */
+/* --- 侧边栏个人标识 --- */
 .profile-avatar {
-    width: 110px;
-    height: 110px;
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    margin: 0 auto 20px auto;
+    border: 1px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    margin: 0;
     display: block;
 }
 
