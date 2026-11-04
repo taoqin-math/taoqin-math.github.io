@@ -484,3 +484,33 @@ ul.modern-list li::before {
 .research-profiles ~ .modern-list .list-date {
     color: var(--text-light);
 }
+
+/* Expandable status note for a single research publication. */
+.research-profiles + .paper-grid .revision-note {
+    flex: 0 0 100%;
+    min-width: 0;
+    margin-top: 4px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-light);
+}
+.research-profiles + .paper-grid .revision-note summary {
+    display: list-item;
+    width: fit-content;
+    cursor: pointer;
+    color: #1d6fa5;
+    font-weight: 500;
+}
+.research-profiles + .paper-grid .revision-note summary:hover {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.research-profiles + .paper-grid .revision-note summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+.research-profiles + .paper-grid .revision-note p {
+    margin: 8px 0 0;
+    max-width: 48rem;
+}
