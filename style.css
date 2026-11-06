@@ -515,42 +515,14 @@ ul.modern-list li::before {
     max-width: 48rem;
 }
 
-/* In-page references to publications: retain stable anchor IDs and
-   make the destination unmistakable without a persistent visual badge. */
+/* Subtle, persistent highlight for an internal publication reference.
+   CSS :target works without JavaScript and survives list reordering. */
 .research-profiles + .paper-grid .paper-card[id] {
     scroll-margin-top: 36px;
 }
 .research-profiles + .paper-grid .paper-card:target {
-    border-radius: 6px;
-    background-color: rgba(52, 152, 219, 0.05);
-}
-.research-profiles + .paper-grid .paper-card.paper-link-flash {
-    animation: paper-target-flash 1.65s ease-out 1;
-}
-@keyframes paper-target-flash {
-    0%, 34% {
-        background-color: rgba(52, 152, 219, 0.18);
-        box-shadow: 0 0 0 7px rgba(52, 152, 219, 0.10);
-    }
-    57% {
-        background-color: rgba(52, 152, 219, 0.03);
-        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
-    }
-    75% {
-        background-color: rgba(52, 152, 219, 0.13);
-        box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.07);
-    }
-    100% {
-        background-color: rgba(52, 152, 219, 0.05);
-        box-shadow: none;
-    }
-}
-@media (prefers-reduced-motion: reduce) {
-    .research-profiles + .paper-grid .paper-card.paper-link-flash {
-        animation: none;
-    }
-    .research-profiles + .paper-grid .paper-card:target {
-        outline: 2px solid rgba(52, 152, 219, 0.50);
-        outline-offset: 5px;
-    }
+    border-radius: 5px;
+    background-color: rgba(52, 152, 219, 0.08);
+    outline: 1px solid rgba(52, 152, 219, 0.32);
+    outline-offset: 4px;
 }
