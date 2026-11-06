@@ -515,14 +515,27 @@ ul.modern-list li::before {
     max-width: 48rem;
 }
 
-/* Subtle, persistent highlight for an internal publication reference.
-   CSS :target works without JavaScript and survives list reordering. */
+/* Brief highlight after following a publication reference.
+   The stable :target anchor works without JavaScript or a persistent highlight. */
 .research-profiles + .paper-grid .paper-card[id] {
     scroll-margin-top: 36px;
 }
 .research-profiles + .paper-grid .paper-card:target {
     border-radius: 5px;
-    background-color: rgba(52, 152, 219, 0.08);
-    outline: 1px solid rgba(52, 152, 219, 0.32);
-    outline-offset: 4px;
+    animation: paper-reference-highlight 3s ease-out forwards;
+}
+@keyframes paper-reference-highlight {
+    0%, 65% {
+        background-color: rgba(52, 152, 219, 0.09);
+        box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.18);
+    }
+    100% {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .research-profiles + .paper-grid .paper-card:target {
+        animation-timing-function: steps(1, end);
+    }
 }
